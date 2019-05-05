@@ -11,7 +11,7 @@
  * ImChrisP
  *
  */
-(function() {
+(function () {
 	var // General variables
 		baseCommand = $.getSetIniDbString('dailySettings', 'baseCommand', 'daily'),
 		liveToggle = $.getSetIniDbBoolean('dailySettings', 'liveToggle', true),
@@ -37,7 +37,7 @@
      */
 	function reloadDaily() {
 		var newCommand = $.getSetIniDbString('dailySettings', 'baseCommand', 'daily');
-			newCommand = newCommand.toLowerCase();
+		newCommand = newCommand.toLowerCase();
 		if (newCommand != baseCommand) {
 			if (!$.commandExists(newCommand)) {
 				var permBase = $.inidb.get('permcom', baseCommand);
@@ -53,29 +53,29 @@
 			}
 		}
 		liveToggle = $.getIniDbBoolean('dailySettings', 'liveToggle'),
-		min0Pay = $.getIniDbNumber('dailySettings', 'min0Pay', 1),
-		max0Pay = $.getIniDbNumber('dailySettings', 'max0Pay', 5),
-		min1Pay = $.getIniDbNumber('dailySettings', 'min1Pay', 1),
-		max1Pay = $.getIniDbNumber('dailySettings', 'max1Pay', 5),
-		min2Pay = $.getIniDbNumber('dailySettings', 'min2Pay', 1),
-		max2Pay = $.getIniDbNumber('dailySettings', 'max2Pay', 5),
-		min3Pay = $.getIniDbNumber('dailySettings', 'min3Pay', 1),
-		max3Pay = $.getIniDbNumber('dailySettings', 'max3Pay', 5),
-		min4Pay = $.getIniDbNumber('dailySettings', 'min4Pay', 1),
-		max4Pay = $.getIniDbNumber('dailySettings', 'max4Pay', 5),
-		min5Pay = $.getIniDbNumber('dailySettings', 'min5Pay', 1),
-		max5Pay = $.getIniDbNumber('dailySettings', 'max5Pay', 5),
-		min6Pay = $.getIniDbNumber('dailySettings', 'min6Pay', 1),
-		max6Pay = $.getIniDbNumber('dailySettings', 'max6Pay', 5),
-		min7Pay = $.getIniDbNumber('dailySettings', 'min7Pay', 1),
-		max7Pay = $.getIniDbNumber('dailySettings', 'max7Pay', 5);
+			min0Pay = $.getIniDbNumber('dailySettings', 'min0Pay'),
+			max0Pay = $.getIniDbNumber('dailySettings', 'max0Pay'),
+			min1Pay = $.getIniDbNumber('dailySettings', 'min1Pay'),
+			max1Pay = $.getIniDbNumber('dailySettings', 'max1Pay'),
+			min2Pay = $.getIniDbNumber('dailySettings', 'min2Pay'),
+			max2Pay = $.getIniDbNumber('dailySettings', 'max2Pay'),
+			min3Pay = $.getIniDbNumber('dailySettings', 'min3Pay'),
+			max3Pay = $.getIniDbNumber('dailySettings', 'max3Pay'),
+			min4Pay = $.getIniDbNumber('dailySettings', 'min4Pay'),
+			max4Pay = $.getIniDbNumber('dailySettings', 'max4Pay'),
+			min5Pay = $.getIniDbNumber('dailySettings', 'min5Pay'),
+			max5Pay = $.getIniDbNumber('dailySettings', 'max5Pay'),
+			min6Pay = $.getIniDbNumber('dailySettings', 'min6Pay'),
+			max6Pay = $.getIniDbNumber('dailySettings', 'max6Pay'),
+			min7Pay = $.getIniDbNumber('dailySettings', 'min7Pay'),
+			max7Pay = $.getIniDbNumber('dailySettings', 'max7Pay');
 	}
 
 	function formatDate(dateIn) {
-	   var yyyy = dateIn.getFullYear();
-	   var mm = dateIn.getMonth()+1; // getMonth() is zero-based
-	   var dd  = dateIn.getDate();
-	   return String(10000*yyyy + 100*mm + dd); // Leading zeros for mm and dd
+		var yyyy = dateIn.getFullYear();
+		var mm = dateIn.getMonth() + 1; // getMonth() is zero-based
+		var dd = dateIn.getDate();
+		return String(10000 * yyyy + 100 * mm + dd); // Leading zeros for mm and dd
 	}
 
 	function runDailyPayout(sender, userRank) {
@@ -84,27 +84,27 @@
 			randomNumber = $.randRange(min7Pay, max7Pay);
 			$.say($.whisperPrefix(sender) + $.lang.get('dailysystem.daily.payout', $.getPointsString(randomNumber)));
 			$.inidb.incr('points', sender, randomNumber);
-		} else if(userRank == 6) {
+		} else if (userRank == 6) {
 			randomNumber = $.randRange(min6Pay, max6Pay);
 			$.say($.whisperPrefix(sender) + $.lang.get('dailysystem.daily.payout', $.getPointsString(randomNumber)));
 			$.inidb.incr('points', sender, randomNumber);
-		} else if(userRank == 5) {
+		} else if (userRank == 5) {
 			randomNumber = $.randRange(min5Pay, max5Pay);
 			$.say($.whisperPrefix(sender) + $.lang.get('dailysystem.daily.payout', $.getPointsString(randomNumber)));
 			$.inidb.incr('points', sender, randomNumber);
-		} else if(userRank == 4) {
+		} else if (userRank == 4) {
 			randomNumber = $.randRange(min4Pay, max4Pay);
 			$.say($.whisperPrefix(sender) + $.lang.get('dailysystem.daily.payout', $.getPointsString(randomNumber)));
 			$.inidb.incr('points', sender, randomNumber);
-		} else if(userRank == 3) {
+		} else if (userRank == 3) {
 			randomNumber = $.randRange(min3Pay, max3Pay);
 			$.say($.whisperPrefix(sender) + $.lang.get('dailysystem.daily.payout', $.getPointsString(randomNumber)));
 			$.inidb.incr('points', sender, randomNumber);
-		} else if(userRank == 2) {
+		} else if (userRank == 2) {
 			randomNumber = $.randRange(min2Pay, max2Pay);
 			$.say($.whisperPrefix(sender) + $.lang.get('dailysystem.daily.payout', $.getPointsString(randomNumber)));
 			$.inidb.incr('points', sender, randomNumber);
-		} else if(userRank == 1) {
+		} else if (userRank == 1) {
 			randomNumber = $.randRange(min1Pay, max1Pay);
 			$.say($.whisperPrefix(sender) + $.lang.get('dailysystem.daily.payout', $.getPointsString(randomNumber)));
 			$.inidb.incr('points', sender, randomNumber);
@@ -120,12 +120,12 @@
 	 */
 	$.bind('command', function (event) {
 		var command = event.getCommand(),
-            sender = event.getSender(),
+			sender = event.getSender(),
 			args = event.getArgs(),
-            action = args[0];
-			optionChoice = args[1];
-			optionValue = args[2];
-			optionValue2 = args[3];
+			action = args[0];
+		optionChoice = args[1];
+		optionValue = args[2];
+		optionValue2 = args[3];
 
 
 		if (command.equalsIgnoreCase(baseCommand)) {
@@ -134,9 +134,9 @@
 
 				if ($.isOnline($.channelName) || !liveToggle) {
 					var dateNow = new Date();
-						dateNow = formatDate(dateNow);
+					dateNow = formatDate(dateNow);
 					if ($.inidb.exists('dailyUsers', sender)) {
-							newDay = $.getIniDbNumber('dailyUsers', sender);
+						newDay = $.getIniDbNumber('dailyUsers', sender);
 						if (newDay >= dateNow) {
 							$.say($.whisperPrefix(sender) + $.lang.get('dailysystem.daily.cooldown'));
 						} else {
@@ -160,24 +160,24 @@
              */
 			if (action.equalsIgnoreCase('set')) {
 				if (optionChoice === undefined) {
-					$.say($.whisperPrefix(sender) + $.lang.get('dailysystem.set.usage', baseCommand));
+					$.say($.whisperPrefix(sender) + $.lang.get('dailysystem.set.usage.empty', baseCommand));
 					return;
 				}
 
 				/**
 				 * @commandpath "baseCommand" set [UserGroupId] [integer] - Used to set the amount of currency won for the daily. Set to 0 to disable.
 				 */
-				if (optionChoice.trim().matches("[0-9]+")){
+				if (optionChoice.trim().matches("[0-9]+")) {
 					if ($.bot.isModuleEnabled('./systems/pointSystem.js')) {
 						if ((optionValue === undefined) || isNaN(optionValue) || (optionValue < 0) || isNaN(optionValue2) || (optionValue2 < 0)) {
 							$.say($.whisperPrefix(sender) + $.lang.get('dailysystem.set.usage', baseCommand, $.getPointsString(minSubPay), $.getPointsString(maxSubPay)));
 							return;
 						} else {
-							if ($.inidb.exists('dailySettings', 'min'+optionChoice+'Pay') && $.inidb.exists('dailySettings', 'max'+optionChoice+'Pay')) {
-								minSubPay = parseInt(optionValue);
-								maxSubPay = parseInt(optionValue2);
-								$.inidb.set('dailySettings', 'min'+optionChoice+'Pay', minSubPay);
-								$.inidb.set('dailySettings', 'max'+optionChoice+'Pay', maxSubPay);
+							if ($.inidb.exists('dailySettings', 'min' + optionChoice + 'Pay') && $.inidb.exists('dailySettings', 'max' + optionChoice + 'Pay')) {
+								minPay = parseInt(optionValue);
+								maxPay = parseInt(optionValue2);
+								$.inidb.set('dailySettings', 'min' + optionChoice + 'Pay', minPay);
+								$.inidb.set('dailySettings', 'max' + optionChoice + 'Pay', maxPay);
 								$.say($.whisperPrefix(sender) + $.lang.get('dailysystem.set.success', $.getGroupNameById(optionChoice), $.getPointsString(minSubPay), $.getPointsString(maxSubPay)));
 								reloadDaily();
 							} else {
@@ -193,12 +193,12 @@
 				/**
 				 * @commandpath "baseCommand" set baseCommand [string] - Used to set the base command for the daily system.
 				 */
-				if (optionChoice.trim().equalsIgnoreCase('basecommand')){
+				if (optionChoice.trim().equalsIgnoreCase('basecommand')) {
 					if (optionValue === undefined) {
 						$.say($.whisperPrefix(sender) + $.lang.get('dailysystem.set.basecommand.usage', baseCommand));
 						return;
 					} else {
-						optionValue = $.replace(optionValue,'!','');
+						optionValue = $.replace(optionValue, '!', '');
 						optionValue = optionValue.toLowerCase();
 						if (optionValue != baseCommand) {
 							if (!$.commandExists(optionValue)) {
@@ -228,22 +228,16 @@
 			return;
 
 		}
-
-		if (command.equalsIgnoreCase('reloaddaily')) {
-	        reloadDaily();
-	    }
 	});
 
 	/**
      * @event initReady
      */
-    $.bind('initReady', function() {
-		if($.bot.isModuleEnabled('./custom/systems/dailySystem.js')){
+	$.bind('initReady', function () {
+		if ($.bot.isModuleEnabled('./custom/systems/dailySystem.js')) {
 			// Register commands
 			$.registerChatCommand('./custom/systems/dailySystem.js', baseCommand, 7);
 			$.registerChatSubcommand(baseCommand, 'set', 1);
-
-			$.registerChatCommand('./custom/systems/dailySystem.js', 'reloaddaily', 30);
 			/**
 			 * Warn the user if the points system is disabled and this is enabled.
 			 */
@@ -251,7 +245,7 @@
 				$.log.warn("./systems/pointSystem.js is not enabled. Daily will be disabled.");
 			}
 		}
-    });
+	});
 
 	$.reloadDaily = reloadDaily;
 })();
