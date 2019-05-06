@@ -17,10 +17,12 @@ This is a Number System modules made by Codes2Much.
 
 ## Streamer Commands:
 - !number generate [minNumber] [maxNumber] - enable the game for people to guess the ranom number.
-- !number toggle - toggle the number system on and off.
+- !number timer [seconds] - to set the nummber of seconds the game should run for.
+- !number togglegame - toggle the number system on and off.
+- !number togglemessage - toggle the number system timer on and off.
 
 ## For Streamer ToDo:
-- On line 8 check 60 to how every many seconds you want the timer set for.
+- Nothing currently required from the streamers from this point.
 
 ## Notes:
 - Place numberSystem.js into *./scripts/custom/games* if folders not there then make them
