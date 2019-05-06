@@ -31,6 +31,7 @@ These are custom modules made by Codes2Much.
     - [Get rewardSystem](https://github.com/Codes2Much/Phantombot-Custom-Scripts/tree/master/custom/systems/rewardSystem "rewardSystem")
     - [Get speakSystem](https://github.com/Codes2Much/Phantombot-Custom-Scripts/tree/master/custom/systems/speakSystem "speakSystem")
     - [Get spotifySystem](https://github.com/Codes2Much/Phantombot-Custom-Scripts/tree/master/custom/systems/spotifySystem "spotifySystem")
+    - [Get storeSystem](https://github.com/Codes2Much/Phantombot-Custom-Scripts/tree/master/custom/systems/storeSystem "storeSystem")
 
 - ### Discord
     - [Get rulesCommand](https://github.com/Codes2Much/Phantombot-Custom-Scripts/tree/master/discord/custom/commands/rulesCommand "rulesCommand")
