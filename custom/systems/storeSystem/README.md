@@ -15,7 +15,7 @@ This is a Store System modules made by Codes2Much.
 - !store [Number] = select the item in the store that you want to buy. 
 
 ## Streamer Commands:
-- !store edit [storeNumber] [storeCost] [storeStock] [storeItem] - edit add or remove items (storeItem = null, remove or delete to remove the store).
+- !store edit [storeNumber] [storeCost] [storeStock] [storeItem] - edit add or remove items (storeItem = null, remove or delete to remove the item from the store).
 - !store channel [DiscordChannelName] - this is the channel if you have discord integration enabled
 - !store toggle - toggle the baught items for discord on and off.
 
