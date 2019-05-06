@@ -5,6 +5,7 @@
  */
 (function () {
     var gameActive = false,
+        messageInterval = $.getSetIniDbNumber('numberSettings', 'messageInterval', 60),
         currentNumber = $.getSetIniDbNumber('numberSettings', 'currentNumber', 0),
         amountSucceed = $.getSetIniDbNumber('numberSettings', 'amountSucceed', 20),
         numberToggle = $.getSetIniDbBoolean('numberSettings', 'numberToggle', true),
@@ -12,6 +13,7 @@
         perviousWinner = $.getSetIniDbString('numberSettings', 'perviousWinner', null);
 
     function reloadNumber() {
+        messageInterval = $.getIniDbNumber('numberSettings', 'messageInterval');
         currentNumber = $.getIniDbNumber('numberSettings', 'currentNumber');
         amountSucceed = $.getIniDbNumber('numberSettings', 'amountSucceed');
         numberToggle = $.getIniDbBoolean('numberSettings', 'numberToggle');
@@ -119,6 +121,12 @@
                                 gameActive = true;
                                 reloadNumber();
                                 $.say($.lang.get('number.generate.pass', ranked_sender, intAction1, intAction2));
+                                setTimeout(function () {
+                                    $.say($.lang.get('number.guessed.timeout', currentNumber));
+                                    $.unbind('ircChannelMessage', messageListener);
+                                    gameActive = false;
+                                    reloadNumber();
+                                }, messageInterval * 1e3);
                             } else {
                                 $.say($.lang.get('number.generate.fail', ranked_sender));
                             }

@@ -20,7 +20,7 @@ This is a Number System modules made by Codes2Much.
 - !number toggle - toggle the number system on and off.
 
 ## For Streamer ToDo:
-- Nothing currently required from the streamers from this point.
+- On line 8 check 60 to how every many seconds you want the timer set for.
 
 ## Notes:
 - Place numberSystem.js into *./scripts/custom/games* if folders not there then make them
