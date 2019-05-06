@@ -109,13 +109,6 @@
                         $.say($.lang.get('number.disabled', ranked_sender));
                     }
                 }
-                if (action.equalsIgnoreCase('clear')) {
-                    if (numberToggle) {
-                        $.say($.lang.get('number.clear.pass', ranked_sender));
-                    } else {
-                        $.say($.lang.get('number.disabled', ranked_sender));
-                    }
-                }
                 if (action.equalsIgnoreCase('generate')) {
                     if (numberToggle) {
                         if (intAction1 && intAction2) {
@@ -147,7 +140,6 @@
         if ($.bot.isModuleEnabled('./custom/games/numberSystem.js')) {
             $.registerChatCommand('./custom/games/numberSystem.js', 'number', 7);
             $.registerChatSubcommand('number', 'toggle', 1);
-            $.registerChatSubcommand('number', 'clear', 1);
             $.registerChatSubcommand('number', 'generate', 1);
             $.registerChatSubcommand('number', 'show', 7);
             $.registerChatSubcommand('number', 'winner', 7);
