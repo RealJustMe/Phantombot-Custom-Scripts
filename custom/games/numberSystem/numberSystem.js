@@ -51,6 +51,7 @@
                     perviousNumber = $.setIniDbNumber('numberSettings', 'perviousNumber', currentNumber);
                     $.unbind('ircChannelMessage', messageListener);
                     gameActive = false;
+                    reloadNumber();
                 }
             }
         }
