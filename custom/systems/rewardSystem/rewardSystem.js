@@ -3,7 +3,7 @@
  *
  * Command handler for a reward system!
  */
-(function() {
+(function () {
     var channelName = $.getSetIniDbString('rewardSettings', 'postTo', 'notifications'),
         reward_announce = $.getSetIniDbBoolean('rewardSettings', 'announce', false);
 
@@ -12,13 +12,13 @@
      */
     function reloadReward() {
         channelName = $.getIniDbString('rewardSettings', 'postTo'),
-        reward_announce = $.getIniDbBoolean('rewardSettings', 'announce');
+            reward_announce = $.getIniDbBoolean('rewardSettings', 'announce');
     }
 
     /**
      * @event command
      */
-    $.bind('command', function(event) {
+    $.bind('command', function (event) {
         var sender = event.getSender().toLowerCase(),
             command = event.getCommand(),
             args = event.getArgs(),
@@ -28,9 +28,9 @@
             points_sender = $.inidb.get('points', sender);
 
         var redeemItems = $.inidb.GetKeyList('rewardItem', '');
-    	var redeemNames = [];
+        var redeemNames = [];
         for (var i = 0; i < redeemItems.length; i++) {
-            redeemNames.push(redeemItems[i] + '. ' + $.inidb.get('rewardItem', redeemItems[i]) + ' (' + $.inidb.get('rewardCost', redeemItems[i]) + ')');   
+            redeemNames.push(redeemItems[i] + '. ' + $.inidb.get('rewardItem', redeemItems[i]) + ' (' + $.inidb.get('rewardCost', redeemItems[i]) + ')');
         }
 
         if (command.equalsIgnoreCase('redeem')) {
@@ -73,26 +73,26 @@
                         $.say($.whisperPrefix(sender) + $.lang.get('redeem.edit.success-new', redeemNumber, $.getPointsString(redeemCost), redeemItem));
                     }
                     return;
-                } else if (action.equalsIgnoreCase('toggle')) { 
+                } else if (action.equalsIgnoreCase('toggle')) {
                     reward_announce = !reward_announce;
                     $.setIniDbBoolean('rewardSettings', 'announce', reward_announce);
                     reloadReward();
-				    $.say($.lang.get('reward.toggle.announce', ranked_sender, reward_announce ? 'enabled' : 'disabled'));
-                } else if (action.equalsIgnoreCase('channel')) { 
+                    $.say($.lang.get('reward.toggle.announce', ranked_sender, reward_announce ? 'enabled' : 'disabled'));
+                } else if (action.equalsIgnoreCase('channel')) {
                     if (args[1] !== undefined) {
                         $.setIniDbBoolean('rewardSettings', 'postTo', args[1]);
                         reloadReward();
-				        $.say($.lang.get('reward.postto.announce', ranked_sender, args[1]));
+                        $.say($.lang.get('reward.postto.announce', ranked_sender, args[1]));
                     } else {
                         $.say($.lang.get('reward.postto.usage', ranked_sender));
                     }
                 } else {
                     rewards = $.getIniDbString('rewardItem', action);
                     cost = $.getIniDbNumber('rewardCost', action);
-                    if (points_sender > cost) {
+                    if (points_sender >= cost) {
                         if (rewards) {
                             $.say($.lang.get('redeem.reward.accept', ranked_sender, rewards, $.getPointsString(cost)));
-                            $.panelsocketserver.alertImage('redeem'+action+'.gif');
+                            $.panelsocketserver.alertImage('redeem' + action + '.gif');
                             $.writeToFile(ranked_sender + ' Claimed ' + rewards, './addons/logFiles/rewards/redeems.txt', true);
                             if (reward_announce) {
                                 $.discordAPI.sendMessageEmbed(channelName, new Packages.sx.blah.discord.util.EmbedBuilder()
@@ -124,8 +124,8 @@
     /**
      * @event initReady
      */
-    $.bind('initReady', function() {
-        if($.bot.isModuleEnabled('./custom/systems/rewardSystem.js')){
+    $.bind('initReady', function () {
+        if ($.bot.isModuleEnabled('./custom/systems/rewardSystem.js')) {
             $.registerChatCommand('./custom/systems/rewardSystem.js', 'redeem', 7);
             $.registerChatSubcommand('redeem', 'toggle', 1);
             $.registerChatSubcommand('redeem', 'edit', 1);

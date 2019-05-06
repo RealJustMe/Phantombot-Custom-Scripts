@@ -17,7 +17,7 @@ This is a Reward System modules made by Codes2Much.
 ## Streamer Commands:
 - !redeem edit [RedeemNumber] [RedeemCost] [RedeemItem] - edit add or remove rewards (RedeemItem = null, remove or delete to remove the reward).
 - !redeem channel [DiscordChannelName] - this is the channel if you have discord integration enabled
-- !redeem toggle - toggle the rewards on and off.
+- !redeem toggle - toggle the redeems for discord on and off.
 
 ## For Streamer ToDo:
 - Nothing currently required from the streamers from this point.
