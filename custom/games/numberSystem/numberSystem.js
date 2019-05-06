@@ -42,7 +42,7 @@
         var ranked_sender = $.username.resolve(sender);
 
         if (gameActive) {
-            if (!message.startsWith('~') && !$.isTwitchBot(sender)) {
+            if (!message.startsWith('!') && !$.isTwitchBot(sender)) {
                 if (message == currentNumber) {
                     $.say($.lang.get('number.guessed.correct', ranked_sender, currentNumber));
                     $.inidb.incr('points', sender.toLowerCase(), amountSucceed);
