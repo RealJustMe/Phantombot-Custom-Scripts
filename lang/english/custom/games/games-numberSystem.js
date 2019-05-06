@@ -22,4 +22,4 @@ $.lang.register('number.clear.fail', '$1, clear!');
 //!number generate
 $.lang.register('number.generate.pass', '$1, Generated a number between $2 and $3!');
 $.lang.register('number.generate.fail', '$1, Number game is already active!');
-$.lang.register('number.generate.usage', '$1, Usage: ~number generate [min] [max]');
+$.lang.register('number.generate.usage', '$1, Usage: !number generate [min] [max]');
