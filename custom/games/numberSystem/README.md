@@ -1,7 +1,7 @@
 # <img alt="PhantomBot" src="https://phantombot.tv/img/new-logo-dark-v2.png" width="600px"/>
 
-# Codes2Much's Reward System Modules for PhantomBot
-This is a Reward System modules made by Codes2Much.
+# Codes2Much's Number System Modules for PhantomBot
+This is a Number System modules made by Codes2Much.
 
 ## Download
 - [x] [Download numberSystem](https://raw.githubusercontent.com/Codes2Much/Phantombot-Custom-Scripts/master/custom/games/numberSystem/numberSystem.js "numberSystem")
