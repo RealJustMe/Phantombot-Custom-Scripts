@@ -109,13 +109,13 @@
                             }
                             $.say($.lang.get('store.accept', ranked_sender, storeItemDb, $.getPointsString(storeCostDb)));
                             $.panelsocketserver.alertImage('store' + storeNumber + '.gif');
-                            $.writeToFile(ranked_sender + ' Claimed ' + storeItemDb, './addons/logFiles/stores/stores.txt', true);
+                            $.log.file('stores-system', ranked_sender + ' Baught ' + rewardItemDb);
                             if (store_announce) {
                                 $.discordAPI.sendMessageEmbed(channelName, new Packages.sx.blah.discord.util.EmbedBuilder()
                                     .withColor(244, 108, 108)
                                     .withThumbnail('https://raw.githubusercontent.com/PhantomBot/Miscellaneous/master/Discord-Embed-Icons/host-embed-icon.png')
                                     .withTitle($.lang.get('discord.store.announce.embedtitle'))
-                                    .appendDescription(ranked_sender + ' Claimed ' + storeItemDb)
+                                    .appendDescription(ranked_sender + ' Baught ' + storeItemDb)
                                     .withTimestamp(Date.now())
                                     .withFooterText('Twitch')
                                     .withFooterIcon($.twitchcache.getLogoLink()).build());

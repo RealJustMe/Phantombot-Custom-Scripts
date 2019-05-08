@@ -93,7 +93,7 @@
                         if (rewards) {
                             $.say($.lang.get('redeem.reward.accept', ranked_sender, rewards, $.getPointsString(cost)));
                             $.panelsocketserver.alertImage('redeem' + action + '.gif');
-                            $.writeToFile(ranked_sender + ' Claimed ' + rewards, './addons/logFiles/rewards/redeems.txt', true);
+                            $.log.file('redeem-system', ranked_sender + ' Claimed ' + rewardItemDb);
                             if (reward_announce) {
                                 $.discordAPI.sendMessageEmbed(channelName, new Packages.sx.blah.discord.util.EmbedBuilder()
                                     .withColor(244, 108, 108)
