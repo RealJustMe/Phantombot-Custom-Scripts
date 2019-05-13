@@ -5,8 +5,8 @@
  */
 
 (function () {
-    runInterestTimer();
     var interval = $.getSetIniDbNumber('bankSettings', 'interval', 600),
+        upgrade = $.getSetIniDbNumber('bankSettings', 'upgrade', 30),
         payout = $.getSetIniDbBoolean('bankSettings', 'payout', false),
         rankpay = $.getSetIniDbBoolean('bankSettings', 'rankpay', false),
         rankup_bronze = $.getSetIniDbNumber('bankSettings', 'rankup_bronze', 600),
@@ -24,6 +24,7 @@
      */
     function reloadBank() {
         interval = $.getIniDbNumber('bankSettings', 'interval');
+        upgrade = $.getIniDbNumber('bankSettings', 'upgrade');
         payout = $.getIniDbBoolean('bankSettings', 'payout');
         rankpay = $.getIniDbBoolean('bankSettings', 'rankpay');
         rankup_bronze = $.getIniDbNumber('bankSettings', 'rankup_bronze');
@@ -37,8 +38,62 @@
     }
 
     /**
- * @function generateDefaultRankBank
- */
+     * @function newDate
+     * @returns {int}
+     */
+    function newDate() {
+        var calendar = java.util.Calendar.getInstance();
+        calendar.add(java.util.Calendar.DATE, upgrade);
+        return parseInt(calendar.getTimeInMillis());
+    }
+
+    /**
+     * @function checkDaysLeft
+     * @param {int} olddate
+     * @returns {int}
+     */
+    function checkDaysLeft(olddate) {
+        var calendar = java.util.Calendar.getInstance();
+        return parseInt(olddate - calendar.getTimeInMillis());
+    }
+
+    /**
+     * @function timeConversion
+     * @param {int} millisec
+     * @returns {datetime}
+     */
+    function timeConversion(milliseconds) {
+        //Get days from milliseconds
+        var days = milliseconds / (1000 * 60 * 60 * 24);
+        var absoluteDays = Math.floor(days);
+        var d = absoluteDays > 9 ? absoluteDays : '0' + absoluteDays;
+
+        //Get hours from milliseconds
+        var hours = (days - absoluteDays) * 24;
+        var absoluteHours = Math.floor(hours);
+        var h = absoluteHours > 9 ? absoluteHours : '0' + absoluteHours;
+
+        //Get remainder from hours and convert to minutes
+        var minutes = (hours - absoluteHours) * 60;
+        var absoluteMinutes = Math.floor(minutes);
+        var m = absoluteMinutes > 9 ? absoluteMinutes : '0' + absoluteMinutes;
+
+        //Get remainder from minutes and convert to seconds
+        var seconds = (minutes - absoluteMinutes) * 60;
+        var absoluteSeconds = Math.floor(seconds);
+        var s = absoluteSeconds > 9 ? absoluteSeconds : '0' + absoluteSeconds;
+        if (d > 0) {
+            return d + ':' + h + ':' + m + ':' + s;
+        }
+        if (h > 0) {
+            return h + ':' + m + ':' + s;
+        }
+        return m + ':' + s;
+    }
+
+    /**
+     * @function generateDefaultRankBank
+     */
     function generateDefaultRankBank() {
         $.getSetIniDbString('rankbank', 'Bronze', '-1');
         $.getSetIniDbString('rankbankoffline', 'Bronze', '-1');
@@ -57,7 +112,6 @@
 
     /**
      * @function getRankBankPayout
-     * @export $
      * @param {string} rankbank
      * @returns {string}
      */
@@ -77,7 +131,6 @@
 
     /**
      * @function getUserRankBank
-     * @export $
      * @param {string} username
      * @returns {string}
      */
@@ -90,75 +143,78 @@
 
     /**
      * @function setUserRankBankById
-     * @export $
      * @param {string} username
-     * @param {Number} id
+     * @param {int} id
      */
     function updateUserRankBank(username) {
-        var points = $.getIniDbNumber('points', username.toLowerCase());
+        var pointsString;
         if ($.inidb.get('bankRanks', username.toLowerCase()) == 'Diamond') {
             if (points >= rankup_emerald) {
                 $.inidb.set('bankRanks', username.toLowerCase(), 'Emerald');
+                $.inidb.set('bankTimes', username.toLowerCase(), newDate());
                 $.inidb.incr('points', username.toLowerCase(), rankup_emerald);
                 $.say($.lang.get('bank.upgrade.user', $.username.resolve(username), 'Emerald'));
             } else {
-                var pointsString = $.getPointsString($.inidb.get('points', sender));
+                pointsString = $.getPointsString($.inidb.get('points', sender));
                 $.say($.lang.get('bank.upgrade.fail', $.username.resolve(username), currency, rankup_emerald, pointsString));
             }
         }
         if ($.inidb.get('bankRanks', username.toLowerCase()) == 'Gold') {
             if (points >= rankup_diamond) {
                 $.inidb.set('bankRanks', username.toLowerCase(), 'Diamond');
+                $.inidb.set('bankTimes', username.toLowerCase(), newDate());
                 $.inidb.incr('points', username.toLowerCase(), rankup_diamond);
                 $.say($.lang.get('bank.upgrade.user', $.username.resolve(username), 'Diamond'));
             } else {
-                var pointsString = $.getPointsString($.inidb.get('points', sender));
+                pointsString = $.getPointsString($.inidb.get('points', sender));
                 $.say($.lang.get('bank.upgrade.fail', $.username.resolve(username), currency, rankup_diamond, pointsString));
             }
         }
         if ($.inidb.get('bankRanks', username.toLowerCase()) == 'Silver') {
             if (points >= rankup_gold) {
                 $.inidb.set('bankRanks', username.toLowerCase(), 'Gold');
+                $.inidb.set('bankTimes', username.toLowerCase(), newDate());
                 $.inidb.incr('points', username.toLowerCase(), rankup_gold);
                 $.say($.lang.get('bank.upgrade.user', $.username.resolve(username), 'Gold'));
             } else {
-                var pointsString = $.getPointsString($.inidb.get('points', sender));
+                pointsString = $.getPointsString($.inidb.get('points', sender));
                 $.say($.lang.get('bank.upgrade.fail', $.username.resolve(username), currency, rankup_gold, pointsString));
             }
         }
         if ($.inidb.get('bankRanks', username.toLowerCase()) == 'Iron') {
             if (points >= rankup_silver) {
                 $.inidb.set('bankRanks', username.toLowerCase(), 'Silver');
+                $.inidb.set('bankTimes', username.toLowerCase(), newDate());
                 $.inidb.incr('points', username.toLowerCase(), rankup_silver);
                 $.say($.lang.get('bank.upgrade.user', $.username.resolve(username), 'Silver'));
             } else {
-                var pointsString = $.getPointsString($.inidb.get('points', sender));
+                pointsString = $.getPointsString($.inidb.get('points', sender));
                 $.say($.lang.get('bank.upgrade.fail', $.username.resolve(username), currency, rankup_silver, pointsString));
             }
         }
         if ($.inidb.get('bankRanks', username.toLowerCase()) == 'Bronze') {
             if (points >= rankup_iron) {
                 $.inidb.set('bankRanks', username.toLowerCase(), 'Iron');
+                $.inidb.set('bankTimes', username.toLowerCase(), newDate());
                 $.inidb.incr('points', username.toLowerCase(), rankup_iron);
                 $.say($.lang.get('bank.upgrade.user', $.username.resolve(username), 'Iron'));
             } else {
-                var pointsString = $.getPointsString($.inidb.get('points', sender));
+                pointsString = $.getPointsString($.inidb.get('points', sender));
                 $.say($.lang.get('bank.upgrade.fail', $.username.resolve(username), currency, rankup_iron, pointsString));
             }
         }
         if (!$.inidb.exists('bankRanks', username.toLowerCase())) {
             if (points >= rankup_bronze) {
                 $.inidb.set('bankRanks', username.toLowerCase(), 'Bronze');
+                $.inidb.set('bankTimes', username.toLowerCase(), newDate());
                 $.inidb.incr('points', username.toLowerCase(), rankup_bronze);
                 $.say($.lang.get('bank.upgrade.user', $.username.resolve(username), 'Bronze'));
             } else {
-                var pointsString = $.getPointsString($.inidb.get('points', sender));
+                pointsString = $.getPointsString($.inidb.get('points', sender));
                 $.say($.lang.get('bank.upgrade.fail', $.username.resolve(username), currency, rankup_bronze, pointsString));
             }
         }
     }
-
-
 
     /**
     * @function runInterestTimer
@@ -180,8 +236,37 @@
     }
 
     /**
+    * @function runDayUserCheck
+    */
+    function runDayUserCheck() {
+        var bankTimes = $.inidb.GetKeyList('bankTimes', '');
+        var rUsers = [];
+        try {
+            for (var i in bankTimes) {
+                var checkMilliseconds = checkDaysLeft($.inidb.GetString('bankTimes', '', bankTimes[i]));
+                rUsers.push(bankTimes[i] + '(' + timeConversion(checkMilliseconds) + ')');
+                if (checkMilliseconds < 0) {
+                    var bankRank = $.getIniDbString('bankRanks', bankTimes[i]);
+                    $.inidb.del('bankTimes', bankTimes[i]);
+                    $.say($.whisperPrefix(bankTimes[i]) + $.lang.get('bank.downgrade.user', bankRank));
+                }
+            }
+            $.consoleDebug('Executed ' + upgrade + ' Day Check. Users: ' + (rUsers.length > 0 ? rUsers.join(', ') : 'none'));
+            $.log.file('bankSystem', 'Executed ' + upgrade + ' Day Check. Users: ' + (rUsers.length > 0 ? rUsers.join(', ') : 'none'));
+            setTimeout(function () {
+                runDayUserCheck();
+            }, 2e5);
+        }
+        catch (error) {
+            $.consoleDebug('[Bank System Error] ' + error);
+            $.log.file('bankSystem', '[Bank System Error] ' + error);
+        }
+    }
+
+    /**
      * @function getBanksString
-     * @param banked
+     * @param {int} banked
+     * @returns {int}
      */
     function getBanksString(banked) {
         if (banked != undefined) {
@@ -191,6 +276,8 @@
 
     /**
      * @function getMilliSeconds
+     * @param {int} num
+     * @returns {int}
      */
     function getMilliSeconds(num) {
         return num * 1000;
@@ -200,7 +287,7 @@
      * @function runInterestPayout
      */
     function runInterestPayout() {
-        var interest = $.getSetIniDbNumber('bankSettings', 'interest', 5),
+        var interest = $.getSetIniDbFloat('bankSettings', 'interest', 1.5),
             bankAccout,
             uUsers = [],
             username,
@@ -216,13 +303,14 @@
                     bankAccout = parseInt($.inidb.get('bank', username));
                     if (bankAccout > 0) {
                         interest = parseInt($.inidb.get('bankSettings', 'interest'));
-                        tax = parseInt((bankAccout * interest) / 100);
+                        tax = parseInt((bankAccout * interest));
 
                         $.inidb.incr('bank', username, tax);
                         uUsers.push(username + '(' + bankAccout + ')');
                     }
                 }
                 $.inidb.setAutoCommit(true);
+                $.consoleDebug('Executed ' + currency + ' Interest. Users: ' + (uUsers.length > 0 ? uUsers.join(', ') : 'none'));
                 $.log.file('bankSystem', 'Executed ' + currency + ' Interest. Users: ' + (uUsers.length > 0 ? uUsers.join(', ') : 'none'));
                 $.say($.lang.get('bank.interest.paid', interest));
             }
@@ -234,13 +322,14 @@
                 bankAccout = parseInt($.inidb.get('bank', username));
                 if (bankAccout > 0) {
                     interest = parseInt($.inidb.get('bankSettings', 'interest'));
-                    tax = parseInt((bankAccout * interest) / 100);
+                    tax = parseInt((bankAccout * interest));
 
                     $.inidb.incr('bank', username, tax);
                     uUsers.push(username + '(' + bankAccout + ')');
                 }
             }
             $.inidb.setAutoCommit(true);
+            $.consoleDebug('Executed ' + currency + ' Interest. Users: ' + (uUsers.length > 0 ? uUsers.join(', ') : 'none'));
             $.log.file('bankSystem', 'Executed ' + currency + ' Interest. Users: ' + (uUsers.length > 0 ? uUsers.join(', ') : 'none'));
             $.say($.lang.get('bank.interest.paid', interest));
         }
@@ -269,7 +358,7 @@
                     }
                 }
                 $.inidb.setAutoCommit(true);
-                $.consoleDebug($.lang.get('bank.rankbank.paid', interest));
+                $.consoleDebug('Executed ' + currency + ' RankBank. Users: ' + (uUsers.length > 0 ? uUsers.join(', ') : 'none'));
                 $.log.file('bankSystem', 'Executed ' + currency + ' RankBank. Users: ' + (uUsers.length > 0 ? uUsers.join(', ') : 'none'));
             }
         } else {
@@ -284,7 +373,7 @@
                 }
             }
             $.inidb.setAutoCommit(true);
-            $.consoleDebug($.lang.get('bank.rankbank.paid', bankAccout));
+            $.consoleDebug('Executed ' + currency + ' RankBank. Users: ' + (uUsers.length > 0 ? uUsers.join(', ') : 'none'));
             $.log.file('bankSystem', 'Executed ' + currency + ' RankBank. Users: ' + (uUsers.length > 0 ? uUsers.join(', ') : 'none'));
         }
     }
@@ -322,6 +411,17 @@
                 if (action1.equalsIgnoreCase('resetall')) {
                     $.inidb.RemoveFile('bank');
                     $.say($.lang.get('bank.reset.all', ranked_sender));
+                }
+
+                //Checks the current rank of user.
+                if (action1.equalsIgnoreCase('rank')) {
+                    if ($.inidb.exists('bankTimes', sender)) {
+                        var cBankRanks = $.inidb.get('bankRanks', sender);
+                        var cBankTimes = new Date(parseInt($.inidb.get('bankTimes', sender))).toLocaleString();
+                        $.say($.lang.get('bank.rank.pass', ranked_sender, cBankRanks, cBankTimes));
+                    } else {
+                        $.say($.lang.get('bank.rank.fail', ranked_sender));
+                    }
                 }
 
                 //Set currency for the bank!
@@ -486,6 +586,7 @@
     $.bind('initReady', function () {
         if ($.bot.isModuleEnabled('./custom/systems/bankSystem.js')) {
             $.registerChatCommand('./custom/systems/bankSystem.js', 'bank', 7);
+            $.registerChatSubcommand('bank', 'rank', 7);
             $.registerChatSubcommand('bank', 'currency', 1);
             $.registerChatSubcommand('bank', 'resetall', 1);
             $.registerChatSubcommand('bank', 'add', 1);
@@ -502,6 +603,8 @@
             $.registerChatSubcommand('upgrade', 'cost', 1);
 
             generateDefaultRankBank();
+            runInterestTimer();
+            runDayUserCheck();
         }
     });
 

@@ -7,9 +7,12 @@ $.lang.register('bank.set.rankpay', '$1, Payout system has been $2.');
 $.lang.register('bank.set.online', '$1, Online check has been $2.');
 $.lang.register('bank.reset.all', '$1, All users banks were reset.');
 
+//Bank command to check how long you have left for your rank.
+$.lang.register('bank.rank.pass', '$1, You currently have $2 rank in the bank. Expire: $3');
+$.lang.register('bank.rank.fail', '$1, You currently do not have a rank in the bank.');
+
 //Bank payout confirmation
-$.lang.register('bank.interest.paid', 'Banks interest has been paid out with $1% interest!');
-$.lang.register('bank.rankbank.paid', 'Banks rankbank has been paid out!');
+$.lang.register('bank.interest.paid', 'Banks interest has been paid out at x$1 interest!');
 
 //Bank command for the bank system
 $.lang.register('bank.sender.check', '$1, You currently have a total of $2.');
@@ -38,5 +41,8 @@ $.lang.register('bank.withdraw.usage', '$1, Usage: ~withdraw <amount>.');
 //Upgrade command for the bank system
 $.lang.register('bank.upgrade.usage', '$1, Usage: ~upgrade cost <rank> <cost>.');
 $.lang.register('bank.upgrade.cost', '$1, You have set $2 rank to cost $3.');
-$.lang.register('bank.upgrade.user', '$1, You have upgraded to $2 rank.');
+$.lang.register('bank.upgrade.user', '$1, You have upgraded to $2 bank rank.');
 $.lang.register('bank.upgrade.fail', '$1, You don\'t seem to have enough $2 for that rank, you need $3 but only seem to have $4.');
+
+//Downgrade a user after a set time
+$.lang.register('bank.downgrade.user', 'You have lost $2 bank rank, you can do ~upgrade to upgrade your rank again.');
