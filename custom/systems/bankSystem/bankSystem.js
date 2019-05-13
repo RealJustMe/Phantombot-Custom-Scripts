@@ -153,7 +153,7 @@
             if (points >= rankup_emerald) {
                 $.inidb.set('bankRanks', username.toLowerCase(), 'Emerald');
                 $.inidb.set('bankTimes', username.toLowerCase(), newDate());
-                $.inidb.incr('points', username.toLowerCase(), rankup_emerald);
+                $.inidb.decr('points', username.toLowerCase(), rankup_emerald);
                 $.say($.lang.get('bank.upgrade.user', $.username.resolve(username), 'Emerald'));
             } else {
                 pointsString = $.getPointsString($.inidb.get('points', sender));
@@ -164,7 +164,7 @@
             if (points >= rankup_diamond) {
                 $.inidb.set('bankRanks', username.toLowerCase(), 'Diamond');
                 $.inidb.set('bankTimes', username.toLowerCase(), newDate());
-                $.inidb.incr('points', username.toLowerCase(), rankup_diamond);
+                $.inidb.decr('points', username.toLowerCase(), rankup_diamond);
                 $.say($.lang.get('bank.upgrade.user', $.username.resolve(username), 'Diamond'));
             } else {
                 pointsString = $.getPointsString($.inidb.get('points', sender));
@@ -175,7 +175,7 @@
             if (points >= rankup_gold) {
                 $.inidb.set('bankRanks', username.toLowerCase(), 'Gold');
                 $.inidb.set('bankTimes', username.toLowerCase(), newDate());
-                $.inidb.incr('points', username.toLowerCase(), rankup_gold);
+                $.inidb.decr('points', username.toLowerCase(), rankup_gold);
                 $.say($.lang.get('bank.upgrade.user', $.username.resolve(username), 'Gold'));
             } else {
                 pointsString = $.getPointsString($.inidb.get('points', sender));
@@ -186,7 +186,7 @@
             if (points >= rankup_silver) {
                 $.inidb.set('bankRanks', username.toLowerCase(), 'Silver');
                 $.inidb.set('bankTimes', username.toLowerCase(), newDate());
-                $.inidb.incr('points', username.toLowerCase(), rankup_silver);
+                $.inidb.decr('points', username.toLowerCase(), rankup_silver);
                 $.say($.lang.get('bank.upgrade.user', $.username.resolve(username), 'Silver'));
             } else {
                 pointsString = $.getPointsString($.inidb.get('points', sender));
@@ -197,7 +197,7 @@
             if (points >= rankup_iron) {
                 $.inidb.set('bankRanks', username.toLowerCase(), 'Iron');
                 $.inidb.set('bankTimes', username.toLowerCase(), newDate());
-                $.inidb.incr('points', username.toLowerCase(), rankup_iron);
+                $.inidb.decr('points', username.toLowerCase(), rankup_iron);
                 $.say($.lang.get('bank.upgrade.user', $.username.resolve(username), 'Iron'));
             } else {
                 pointsString = $.getPointsString($.inidb.get('points', sender));
@@ -208,7 +208,7 @@
             if (points >= rankup_bronze) {
                 $.inidb.set('bankRanks', username.toLowerCase(), 'Bronze');
                 $.inidb.set('bankTimes', username.toLowerCase(), newDate());
-                $.inidb.incr('points', username.toLowerCase(), rankup_bronze);
+                $.inidb.decr('points', username.toLowerCase(), rankup_bronze);
                 $.say($.lang.get('bank.upgrade.user', $.username.resolve(username), 'Bronze'));
             } else {
                 pointsString = $.getPointsString($.inidb.get('points', sender));
