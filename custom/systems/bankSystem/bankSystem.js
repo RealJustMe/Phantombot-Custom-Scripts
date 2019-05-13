@@ -148,6 +148,7 @@
      */
     function updateUserRankBank(username) {
         var pointsString;
+        var points = $.getIniDbNumber('points', username.toLowerCase());
         if ($.inidb.get('bankRanks', username.toLowerCase()) == 'Diamond') {
             if (points >= rankup_emerald) {
                 $.inidb.set('bankRanks', username.toLowerCase(), 'Emerald');
