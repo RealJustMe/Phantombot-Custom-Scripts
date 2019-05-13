@@ -95,18 +95,18 @@
      * @function generateDefaultRankBank
      */
     function generateDefaultRankBank() {
-        $.getSetIniDbString('rankbank', 'Bronze', '-1');
-        $.getSetIniDbString('rankbankoffline', 'Bronze', '-1');
-        $.getSetIniDbString('rankbank', 'Iron', '-1');
-        $.getSetIniDbString('rankbankoffline', 'Iron', '-1');
-        $.getSetIniDbString('rankbank', 'Silver', '-1');
-        $.getSetIniDbString('rankbankoffline', 'Silver', '-1');
-        $.getSetIniDbString('rankbank', 'Gold', '-1');
-        $.getSetIniDbString('rankbankoffline', 'Gold', '-1');
-        $.getSetIniDbString('rankbank', 'Diamond', '-1');
-        $.getSetIniDbString('rankbankoffline', 'Diamond', '-1');
-        $.getSetIniDbString('rankbank', 'Emerald', '-1');
-        $.getSetIniDbString('rankbankoffline', 'Emerald', '-1');
+        $.getSetIniDbNumber('rankbank', 'Bronze', '-1');
+        $.getSetIniDbNumber('rankbankoffline', 'Bronze', '-1');
+        $.getSetIniDbNumber('rankbank', 'Iron', '-1');
+        $.getSetIniDbNumber('rankbankoffline', 'Iron', '-1');
+        $.getSetIniDbNumber('rankbank', 'Silver', '-1');
+        $.getSetIniDbNumber('rankbankoffline', 'Silver', '-1');
+        $.getSetIniDbNumber('rankbank', 'Gold', '-1');
+        $.getSetIniDbNumber('rankbankoffline', 'Gold', '-1');
+        $.getSetIniDbNumber('rankbank', 'Diamond', '-1');
+        $.getSetIniDbNumber('rankbankoffline', 'Diamond', '-1');
+        $.getSetIniDbNumber('rankbank', 'Emerald', '-1');
+        $.getSetIniDbNumber('rankbankoffline', 'Emerald', '-1');
     }
 
 
@@ -142,7 +142,7 @@
     }
 
     /**
-     * @function setUserRankBankById
+     * @function updateUserRankBank
      * @param {string} username
      * @param {int} id
      */
@@ -389,9 +389,11 @@
             action1 = args[0],
             action2 = args[1],
             action3 = args[2],
-            intAction1 = parseInt(args[0]),
-            intAction2 = parseInt(args[1]),
-            intAction3 = parseInt(args[2]);
+            action4 = args[3],
+            intAction1 = parseInt(action1),
+            intAction2 = parseInt(action2),
+            intAction3 = parseInt(action3),
+            intAction4 = parseInt(action4);
 
         var bank_sender = $.getSetIniDbNumber('bank', sender, 0),
             points_sender = $.getSetIniDbNumber('points', sender, 0),
@@ -562,7 +564,39 @@
             if (!action1) {
                 updateUserRankBank(sender);
             } else {
-                //Set currency for the bank!
+                //sets online and offline payout!
+                if (action1.equalsIgnoreCase('payout')) {
+                    if (action2 && action3 && intAction4) {
+                        if (!action2.equalsIgnoreCase('online') && !action2.equalsIgnoreCase('offline') && !action3 && !intAction4) {
+                            $.say($.lang.get('bank.upgrade.payout.usage', ranked_sender));
+                            return;
+                        }
+
+                        if (action2.equalsIgnoreCase('online')) {
+                            if (!$.inidb.exists('rankbank', action3)) {
+                                $.say($.lang.get('bank.upgrade.payout.usage', ranked_sender));
+                                return;
+                            }
+                            $.setIniDbNumber('rankbank', action3, intAction4);
+                            $.say($.lang.get('bank.upgrade.payout.online', ranked_sender, action3, intAction4));
+                            reloadBank();
+                            return;
+                        } else if (action2.equalsIgnoreCase('offline')) {
+                            if (!$.inidb.exists('rankbankoffline', action3)) {
+                                $.say($.lang.get('bank.upgrade.payout.usage', ranked_sender));
+                                return;
+                            }
+                            $.setIniDbNumber('rankbankoffline', action3, intAction4);
+                            $.say($.lang.get('bank.upgrade.payout.offline', ranked_sender, action3, intAction4));
+                            reloadBank();
+                            return;
+                        }
+                    } else {
+                        $.say($.lang.get('bank.upgrade.payout.usage', ranked_sender));
+                    }
+                }
+
+                //sets the cost of an upgrade!
                 if (action1.equalsIgnoreCase('cost')) {
                     if (action2 && intAction3) {
                         if ($.inidb.exists('bankSettings', 'rankup_' + action2)) {
@@ -601,6 +635,7 @@
             $.registerChatCommand('./custom/systems/bankSystem.js', 'invest', 7);
             $.registerChatCommand('./custom/systems/bankSystem.js', 'withdraw', 7);
             $.registerChatCommand('./custom/systems/bankSystem.js', 'upgrade', 7);
+            $.registerChatSubcommand('upgrade', 'payout', 1);
             $.registerChatSubcommand('upgrade', 'cost', 1);
 
             generateDefaultRankBank();

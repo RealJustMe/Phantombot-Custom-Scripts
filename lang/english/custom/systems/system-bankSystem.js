@@ -44,5 +44,10 @@ $.lang.register('bank.upgrade.cost', '$1, You have set $2 rank to cost $3.');
 $.lang.register('bank.upgrade.user', '$1, You have upgraded to $2 bank rank.');
 $.lang.register('bank.upgrade.fail', '$1, You don\'t seem to have enough $2 for that rank, you need $3 but only seem to have $4.');
 
+//Payout command for the upgrade system.
+$.lang.register('bank.upgrade.payout.usage', '$1, Usage: ~upgrade payout <online/offline> <rank> <amount>.');
+$.lang.register('bank.upgrade.payout.online', '$1, You have set $2 online rank to payout $3.');
+$.lang.register('bank.upgrade.payout.offline', '$1, You have set $2 offline rank to payout $3.');
+
 //Downgrade a user after a set time
 $.lang.register('bank.downgrade.user', 'You have lost $2 bank rank, you can do ~upgrade to upgrade your rank again.');
