@@ -121,6 +121,8 @@
                         }
                     }
                     $.consoleDebug("Running Spotify Update... " + json.item.artists[0].name + ' - ' + json.item.name);
+                } else {
+                    refreshToken();
                 }
             }
             catch (error) {
