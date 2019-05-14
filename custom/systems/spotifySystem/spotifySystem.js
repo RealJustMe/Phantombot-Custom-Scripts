@@ -106,7 +106,7 @@
                             song = json.item.name,
                             external_url = json.item.external_urls.spotify,
                             output = artist + " - " + song + " | " + external_url,
-                            is_playing = json.track.is_playing;
+                            is_playing = json.is_playing;
 
                         if (spotify_latest != output && is_playing) {
                             $.consoleDebug("Running Spotify Update..."); //This is only here for bug fixing
