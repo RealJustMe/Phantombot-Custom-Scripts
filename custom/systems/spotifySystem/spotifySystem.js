@@ -37,6 +37,26 @@
     }
 
     /**
+     * get the json data!
+     */
+    function getJSON(url) {
+        var HttpRequest = Packages.com.gmt2001.HttpRequest,
+            HashMap = Packages.java.util.HashMap,
+            hashMap = new HashMap();
+        try {
+            spotify_apikey = $.getIniDbString('spotifySettings', 'apikey');
+            hashMap.put('Content-Type', 'application/json');
+            hashMap.put('Authorization', 'Bearer ' + spotify_apikey);
+            var responseData = HttpRequest.getData(HttpRequest.RequestType.GET, url, "", hashMap);
+
+            return responseData.content;
+        }
+        catch (error) {
+            $.consoleDebug('HttpRequest Failed: ' + error);
+        }
+    }
+
+    /**
      * @function refreshToken
      */
     function refreshToken() {
@@ -55,32 +75,12 @@
 
         try {
             var json = JSON.parse(responseData.content);
-            if (typeof json.access_token !== undefined) {
+            if (json.access_token !== undefined) {
                 $.setIniDbString('spotifySettings', 'apikey', json.access_token);
                 $.consoleDebug('Running Spotify Access_Token Update... ' + json.access_token);
             }
         } catch (error) {
             $.consoleDebug('Spotify Failed to to refresh token: ' + error);
-        }
-    }
-
-    /**
-     * get the json data!
-     */
-    function _getJSON(url) {
-        var HttpRequest = Packages.com.gmt2001.HttpRequest,
-            HashMap = Packages.java.util.HashMap,
-            hashMap = new HashMap();
-        try {
-            spotify_apikey = $.getIniDbString('spotifySettings', 'apikey');
-            hashMap.put('Content-Type', 'application/json');
-            hashMap.put('Authorization', 'Bearer ' + spotify_apikey);
-            var responseData = HttpRequest.getData(HttpRequest.RequestType.GET, url, "", hashMap);
-
-            return responseData.content;
-        }
-        catch (error) {
-            $.consoleDebug('HttpRequest Failed: ' + error);
         }
     }
 
@@ -99,8 +99,9 @@
             }
 
             try {
-                var json = JSON.parse(_getJSON("https://api.spotify.com/v1/me/player/currently-playing?is_playing=true"));
-                if (typeof json.item.artists[0].name !== undefined) {
+                var responce = getJSON("https://api.spotify.com/v1/me/player/currently-playing?is_playing=true");
+                var json = JSON.parse(responce);
+                if (json.item !== undefined) {
                     if (json.item.name) {
                         var artist = json.item.artists[0].name,
                             song = json.item.name,
@@ -123,6 +124,7 @@
                     $.consoleDebug("Running Spotify Update... " + json.item.artists[0].name + ' - ' + json.item.name);
                 } else {
                     refreshToken();
+                    $.consoleDebug('Running Spotify Refresh Token...' + json.error.message);
                 }
             }
             catch (error) {
