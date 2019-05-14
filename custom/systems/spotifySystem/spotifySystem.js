@@ -167,6 +167,14 @@
                 $.setIniDbBoolean('spotifySettings', 'apikey', action1);
                 $.say($.lang.get('spotify.setting.changed', ranked_sender, 'apikey', '[key hidden]'));
                 reloadSpotify();
+            } else if (action.equalsIgnoreCase('refreshkey')) {
+                if (!action1) {
+                    $.say($.lang.get('spotify.setting.change.failed', ranked_sender, 'refreshkey'));
+                    return;
+                }
+                $.setIniDbBoolean('spotifySettings', 'refreshkey', action1);
+                $.say($.lang.get('spotify.setting.changed', ranked_sender, 'refreshkey', '[key hidden]'));
+                reloadSpotify();
             } else if (action.equalsIgnoreCase('announce')) {
                 spotify_announce = !spotify_announce;
                 $.setIniDbBoolean('spotifySettings', 'announce', spotify_announce);
@@ -184,9 +192,10 @@
     $.bind('initReady', function () {
         if ($.bot.isModuleEnabled('./custom/systems/spotifySystem.js')) {
             $.registerChatCommand('./custom/systems/spotifySystem.js', 'spotify', 6);
-            $.registerChatSubcommand('spotify', 'apikey', 1);
-            $.registerChatSubcommand('spotify', 'writeyt', 1);
+            $.registerChatSubcommand('spotify', 'refreshkey', 1);
             $.registerChatSubcommand('spotify', 'announce', 1);
+            $.registerChatSubcommand('spotify', 'writeyt', 1);
+            $.registerChatSubcommand('spotify', 'apikey', 1);
         }
     });
 
