@@ -4,25 +4,25 @@
  * A command that will let you steal another users points.
  *
  * Current version 1.0.0
- * 
+ *
  * Original author: Dakoda
- * 
+ *
  * Contributors:
  * Wildwolf_live
  *
  */
-(function() {
+(function () {
     var StealSenderCounter,
         StealTargetCounter;
-        
-	var minSteal = $.getSetIniDbNumber('stealSettings', 'minSteal', 1),
-		maxSteal = $.getSetIniDbNumber('stealSettings', 'maxSteal', 100);
+
+    var minSteal = $.getSetIniDbNumber('stealSettings', 'minSteal', 1),
+        maxSteal = $.getSetIniDbNumber('stealSettings', 'maxSteal', 100);
 
 	/**
      * @function reloadSteal
      */
-	function reloadSteal() {
-		minSteal = $.getIniDbNumber('stealSettings', 'minSteal');
+    function reloadSteal() {
+        minSteal = $.getIniDbNumber('stealSettings', 'minSteal');
         maxSteal = $.getIniDbNumber('stealSettings', 'maxSteal');
     }
 
@@ -31,11 +31,11 @@
      * @info Pushes the entire StealSender list.
      */
     function pushStealSender() {
-    	var StealSenderID,
-    		StealSenderResponce = [];
+        var StealSenderID,
+            StealSenderResponce = [];
 
         for (StealSenderID = 1; $.lang.exists('steal.sender.steals.' + StealSenderID); StealSenderID++) {
-            StealSenderResponce.push($.lang.get('steal.sender.steals.' + StealSenderID));            
+            StealSenderResponce.push($.lang.get('steal.sender.steals.' + StealSenderID));
         }
         StealSenderCounter = StealSenderID;
 
@@ -47,8 +47,8 @@
      * @info Pushes the entire StealTarget list.
      */
     function pushStealTarget() {
-    	var StealTargetID,
-    		StealTargetResponce = [];
+        var StealTargetID,
+            StealTargetResponce = [];
 
         for (StealTargetID = 1; $.lang.exists('steal.target.steals.' + StealTargetID); StealTargetID++) {
             StealTargetResponce.push($.lang.get('steal.target.steals.' + StealTargetID));
@@ -63,10 +63,10 @@
      * @info Pushes the entire stealing list.
      */
     function pushStealing() {
-    	pushStealSender();
-    	pushStealTarget();
+        pushStealSender();
+        pushStealTarget();
     }
-    
+
     /**
      * @function getRandomInt
      */
@@ -79,7 +79,7 @@
 	/**
      * @event command
      */
-    $.bind('command', function(event) {
+    $.bind('command', function (event) {
         var sender = event.getSender().toLowerCase(),
             command = event.getCommand(),
             argsString = event.getArguments(),
@@ -87,8 +87,8 @@
             action = args[0],
             actionInt = parseInt(args[1]);
 
-		if (command.equalsIgnoreCase('steal')) {
-			if (!action) {
+        if (command.equalsIgnoreCase('steal')) {
+            if (!action) {
                 var randInt = getRandomInt(minSteal, maxSteal);
                 if (randInt > $.getUserPoints($.botName.toLowerCase())) {
                     $.say($.whisperPrefix(sender) + $.lang.get('steal.user.nopoints', $.botName, $.pointNameMultiple));
@@ -101,17 +101,17 @@
                             $.say($.whisperPrefix(sender) + $.lang.get('steal.tryme', $.getPointsString(randInt), $.botName));
                             $.inidb.decr('points', sender, randInt);
                             $.inidb.incr('points', $.botName.toLowerCase(), randInt);
-                            setTimeout(function() {
+                            setTimeout(function () {
                                 randomNumber = $.randRange(1, StealTargetCounter - 1);
-                                $.say($.whisperPrefix(sender) + $.lang.get('steal.target.steals.'+randomNumber, $.getPointsString(randInt), $.botName));
+                                $.say($.whisperPrefix(sender) + $.lang.get('steal.target.steals.' + randomNumber, $.getPointsString(randInt), $.botName));
                             }, 5e3);
                         } else {
                             $.say($.whisperPrefix(sender) + $.lang.get('steal.tryme', $.getPointsString(randInt), $.botName));
                             $.inidb.decr('points', $.botName.toLowerCase(), randInt);
                             $.inidb.incr('points', sender, randInt);
-                            setTimeout(function() {
+                            setTimeout(function () {
                                 randomNumber = $.randRange(1, StealSenderCounter - 1);
-                                $.say($.whisperPrefix(sender) + $.lang.get('steal.sender.steals.'+randomNumber, $.getPointsString(randInt), $.botName));
+                                $.say($.whisperPrefix(sender) + $.lang.get('steal.sender.steals.' + randomNumber, $.getPointsString(randInt), $.botName));
                             }, 5e3);
                         }
                     }
@@ -119,7 +119,7 @@
                 return;
             } else {
                 if (action.equalsIgnoreCase('min')) {
-                    if (!actionInt) { 
+                    if (!actionInt) {
                         $.say($.whisperPrefix(sender) + $.lang.get('steal.min.usage'));
                     } else {
                         $.setIniDbNumber('stealSettings', 'minSteal', actionInt);
@@ -130,7 +130,7 @@
                 }
 
                 if (action.equalsIgnoreCase('max')) {
-                    if (!actionInt) { 
+                    if (!actionInt) {
                         $.say($.whisperPrefix(sender) + $.lang.get('steal.max.usage'));
                     } else {
                         $.setIniDbNumber('stealSettings', 'maxSteal', actionInt);
@@ -139,7 +139,7 @@
                     }
                     return;
                 }
-            
+
                 action = $.user.sanitize(action);
                 if ($.userExists(action)) {
                     var randInt = getRandomInt(minSteal, maxSteal);
@@ -154,17 +154,17 @@
                             if (whoSteals > 50) {
                                 $.inidb.decr('points', sender, randInt);
                                 $.inidb.incr('points', action, randInt);
-                                setTimeout(function() {
+                                setTimeout(function () {
                                     randomNumber = $.randRange(1, StealTargetCounter - 1);
-                                    $.say($.whisperPrefix(sender) + $.lang.get('steal.target.steals.'+randomNumber, $.getPointsString(randInt), $.username.resolve(action)));
-                                }, 5e3);                               
+                                    $.say($.whisperPrefix(sender) + $.lang.get('steal.target.steals.' + randomNumber, $.getPointsString(randInt), $.username.resolve(action)));
+                                }, 5e3);
                             } else {
                                 $.inidb.decr('points', action, randInt);
                                 $.inidb.incr('points', sender, randInt);
-                                setTimeout(function() {
+                                setTimeout(function () {
                                     randomNumber = $.randRange(1, StealSenderCounter - 1);
-                                    $.say($.whisperPrefix(sender) + $.lang.get('steal.sender.steals.'+randomNumber, $.getPointsString(randInt), $.username.resolve(action)));
-                                }, 5e3);                                
+                                    $.say($.whisperPrefix(sender) + $.lang.get('steal.sender.steals.' + randomNumber, $.getPointsString(randInt), $.username.resolve(action)));
+                                }, 5e3);
                             }
                         }
                     }
@@ -172,13 +172,13 @@
                     $.say($.whisperPrefix(sender) + $.lang.get('steal.nouser.usage', $.username.resolve(action)));
                 }
             }
-		}
-	});
+        }
+    });
 
 	/**
      * @event initReady
      */
-    $.bind('initReady', function() {
+    $.bind('initReady', function () {
         if ($.bot.isModuleEnabled('./custom/games/stealSystem.js')) {
             $.registerChatCommand('./custom/games/stealSystem.js', 'steal', 7);
             $.registerChatSubcommand('steal', 'min', 1);
@@ -187,6 +187,6 @@
 
         pushStealing();
     });
-    
+
     $.reloadSteal = reloadSteal;
 })();
