@@ -4,7 +4,7 @@
 This is a Store System modules made by Codes2Much.
 
 ## Download
-- [x] [Download storeSystem](https://raw.githubusercontent.com/Codes2Much/Phantombot-Custom-Scripts/master/custom/systems/storeSystem/storeSystem.js "storeSystem")
+- [x] [Download storeSystem](https://raw.githubusercontent.com/Codes2Much/Phantombot-Custom-Scripts/master/english/custom/systems/storeSystem/storeSystem.js "storeSystem")
 - [x] [Download system-storeSystem](https://raw.githubusercontent.com/Codes2Much/Phantombot-Custom-Scripts/master/lang/english/custom/systems/system-storeSystem.js "system-storeSystem")
 
 ## Current Script Version:
@@ -12,7 +12,7 @@ This is a Store System modules made by Codes2Much.
 
 ## Viewer Commands:
 - !store - get a list of current items in the store.
-- !store [Number] = select the item in the store that you want to buy. 
+- !store [Number] = select the item in the store that you want to buy.
 
 ## Streamer Commands:
 - !store edit [storeNumber] [storeCost] [storeStock] [storeItem] - edit add or remove items (storeItem = null, remove or delete to remove the item from the store).

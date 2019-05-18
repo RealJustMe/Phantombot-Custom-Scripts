@@ -4,7 +4,7 @@
 This is a Reward System modules made by Codes2Much.
 
 ## Download
-- [x] [Download rewardSystem](https://raw.githubusercontent.com/Codes2Much/Phantombot-Custom-Scripts/master/custom/systems/rewardSystem/rewardSystem.js "rewardSystem")
+- [x] [Download rewardSystem](https://raw.githubusercontent.com/Codes2Much/Phantombot-Custom-Scripts/master/english/custom/systems/rewardSystem/rewardSystem.js "rewardSystem")
 - [x] [Download system-rewardSystem](https://raw.githubusercontent.com/Codes2Much/Phantombot-Custom-Scripts/master/lang/english/custom/systems/system-rewardSystem.js "system-rewardSystem")
 
 ## Current Script Version:
@@ -12,7 +12,7 @@ This is a Reward System modules made by Codes2Much.
 
 ## Viewer Commands:
 - !redeem - get a list of current rewards.
-- !redeem [Number] = select the reward to redeem. 
+- !redeem [Number] = select the reward to redeem.
 
 ## Streamer Commands:
 - !redeem edit [RedeemNumber] [RedeemCost] [RedeemItem] - edit add or remove rewards (RedeemItem = null, remove or delete to remove the reward).

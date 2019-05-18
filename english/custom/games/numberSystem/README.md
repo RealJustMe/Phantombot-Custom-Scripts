@@ -4,7 +4,7 @@
 This is a Number System modules made by Codes2Much.
 
 ## Download
-- [x] [Download numberSystem](https://raw.githubusercontent.com/Codes2Much/Phantombot-Custom-Scripts/master/custom/games/numberSystem/numberSystem.js "numberSystem")
+- [x] [Download numberSystem](https://raw.githubusercontent.com/Codes2Much/Phantombot-Custom-Scripts/master/english/custom/games/numberSystem/numberSystem.js "numberSystem")
 - [x] [Download system-numberSystem](https://raw.githubusercontent.com/Codes2Much/Phantombot-Custom-Scripts/master/lang/english/custom/games/games-numberSystem.js "system-numberSystem")
 
 ## Current Script Version:
@@ -13,7 +13,7 @@ This is a Number System modules made by Codes2Much.
 ## Viewer Commands:
 - !number - check how many times they have won.
 - !number show = check the last number that won.
-- !number winner = check the last user that won. 
+- !number winner = check the last user that won.
 
 ## Streamer Commands:
 - !number generate [minNumber] [maxNumber] - enable the game for people to guess the ranom number.
