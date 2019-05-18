@@ -11,6 +11,7 @@ These are custom modules made by Codes2Much.
     - [Get gtCommand](https://github.com/Codes2Much/Phantombot-Custom-Scripts/tree/master/custom/commands/gtCommand "gtCommand")
 
 - ### Games
+    - [Get bountySystem](https://github.com/Codes2Much/Phantombot-Custom-Scripts/tree/master/custom/games/bountySystem "bountySystem")
     - [Get challengeSystem](https://github.com/Codes2Much/Phantombot-Custom-Scripts/tree/master/custom/games/challengeSystem "challengeSystem")
     - [Get defuseSystem](https://github.com/Codes2Much/Phantombot-Custom-Scripts/tree/master/custom/games/defuseSystem "defuseSystem")
     - [Get hackSystem](https://github.com/Codes2Much/Phantombot-Custom-Scripts/tree/master/custom/games/hackSystem "hackSystem")
