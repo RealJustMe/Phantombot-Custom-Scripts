@@ -36,7 +36,6 @@ These are custom modules made by Codes2Much. (Hierbei handelt es sich um benutze
 
 - ### Discord (Discord)
     - [Get rulesCommand English](https://github.com/Codes2Much/Phantombot-Custom-Scripts/tree/master/english/discord/custom/commands/rulesCommand "rulesCommand") - [Erhalten rulesCommand German](https://github.com/Codes2Much/Phantombot-Custom-Scripts/tree/master/german/discord/custom/commands/rulesCommand "rulesCommand")
-    - [Get uploadBackupSystem English](https://github.com/Codes2Much/Phantombot-Custom-Scripts/tree/master/english/discord/custom/systems/uploadBackupSystem "uploadBackupSystem") - [Erhalten uploadBackupSystem German](https://github.com/Codes2Much/Phantombot-Custom-Scripts/tree/master/german/discord/custom/systems/uploadBackupSystem "uploadBackupSystem")
 
 ## Disclaimer
 - These are user made modules. PhantomBot developers **will not** provide support for these modules.
