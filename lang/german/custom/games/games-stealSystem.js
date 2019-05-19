@@ -39,8 +39,8 @@ $.lang.register('steal.target.steals.1', 'failed to steal $1 from $2.');
  */
 
 //Settings messages
-$.lang.register('steal.min.usage', 'Usage: !steal min [min number]');
+$.lang.register('steal.min.usage', 'Verwendung: !steal min [min number]');
 $.lang.register('steal.min.success', 'Minimum to steal has been set to $1');
-$.lang.register('steal.max.usage', 'Usage: !steal max [max number]');
+$.lang.register('steal.max.usage', 'Verwendung: !steal max [max number]');
 $.lang.register('steal.max.success', 'Maximum to steal has been set to $1');
 

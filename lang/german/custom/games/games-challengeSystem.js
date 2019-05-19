@@ -58,7 +58,7 @@ $.lang.register('challengesystem.console.attackdodgeerror', 'WARNING! There were
 /**
  * Main challenge strings
  */
-$.lang.register('challengesystem.challenge.usage', 'Usage: !$1 <Opponent Name>');
+$.lang.register('challengesystem.challenge.usage', 'Verwendung: !$1 <Opponent Name>');
 $.lang.register('challengesystem.challenge.noself', 'No, no... it\'s !$1 <OPPONENT>. You can\'t beat yourself up, even if you want to. Sorrynotsorry Kappa');
 $.lang.register('challengesystem.challenge.usage.nochallenged', 'You can\'t $1 $2, because they don\'t seem to be in this channel.');
 $.lang.register('challengesystem.challenge.usage.nopoints.challenger', 'You don\'t have enough $2 to issue a $1 right now. You need $3.');
@@ -85,35 +85,35 @@ $.lang.register('challengesystem.challenge.recovery.challenged.seconds', 'You ca
 /**
  * Challenge set strings
  */
-$.lang.register('challengesystem.set.usage','Usage: !$1 set [ mindamage | maxdamage | health | attackrate | wager | minwager | maxwager | timeout | captions | messageinterval | challengeinterval | recovery | baseCommand ]');
-$.lang.register('challengesystem.set.mindamage.usage','Usage: !$1 set mindamage <Number>. Current setting: $2.');
+$.lang.register('challengesystem.set.usage','Verwendung: !$1 set [ mindamage | maxdamage | health | attackrate | wager | minwager | maxwager | timeout | captions | messageinterval | challengeinterval | recovery | baseCommand ]');
+$.lang.register('challengesystem.set.mindamage.usage','Verwendung: !$1 set mindamage <Number>. Current setting: $2.');
 $.lang.register('challengesystem.set.mindamage.success','minDamage has been successfully set to $2.');
-$.lang.register('challengesystem.set.maxdamage.usage','Usage: !$1 set maxdamage <Number>. Current setting: $2.');
+$.lang.register('challengesystem.set.maxdamage.usage','Verwendung: !$1 set maxdamage <Number>. Current setting: $2.');
 $.lang.register('challengesystem.set.maxdamage.success','maxDamage has been successfully set to $2.');
-$.lang.register('challengesystem.set.health.usage','Usage: !$1 set health <Number>. Current setting: $2 HP.');
+$.lang.register('challengesystem.set.health.usage','Verwendung: !$1 set health <Number>. Current setting: $2 HP.');
 $.lang.register('challengesystem.set.health.success','health has been successfully set to $2 HP.');
-$.lang.register('challengesystem.set.attackrate.usage','Usage: !$1 set attackrate <Percentage>. Current setting: $2%.');
+$.lang.register('challengesystem.set.attackrate.usage','Verwendung: !$1 set attackrate <Percentage>. Current setting: $2%.');
 $.lang.register('challengesystem.set.attackrate.success','attackRate has been successfully set to $2%.');
-$.lang.register('challengesystem.set.wager.usage','Usage: !$1 set wager <Number>. Current setting: $2.');
+$.lang.register('challengesystem.set.wager.usage','Verwendung: !$1 set wager <Number>. Current setting: $2.');
 $.lang.register('challengesystem.set.wager.success','wager has been successfully set to $2.');
 $.lang.register('challengesystem.set.wager.pointsystem','wager can\'t be set, because module "$1" isn\'t enabled.');
-$.lang.register('challengesystem.set.minwager.usage','Usage: !$1 set minwager <Number>. Current setting: $2.');
+$.lang.register('challengesystem.set.minwager.usage','Verwendung: !$1 set minwager <Number>. Current setting: $2.');
 $.lang.register('challengesystem.set.minwager.success','Minimum wager has been successfully set to $2.');
 $.lang.register('challengesystem.set.minwager.pointsystem','Minimum wager can\'t be set, because module "$1" isn\'t enabled.');
-$.lang.register('challengesystem.set.maxwager.usage','Usage: !$1 set maxwager <Number>. Current setting: $2.');
+$.lang.register('challengesystem.set.maxwager.usage','Verwendung: !$1 set maxwager <Number>. Current setting: $2.');
 $.lang.register('challengesystem.set.maxwager.success','Maximum wager has been successfully set to $2.');
 $.lang.register('challengesystem.set.maxwager.pointsystem','Maximum wager can\'t be set, because module "$1" isn\'t enabled.');
-$.lang.register('challengesystem.set.timeout.usage','Usage: !$1 set timeout <Number>. Current setting: $2 seconds.');
+$.lang.register('challengesystem.set.timeout.usage','Verwendung: !$1 set timeout <Number>. Current setting: $2 seconds.');
 $.lang.register('challengesystem.set.timeout.success','timeout has been successfully set to $2 seconds.');
-$.lang.register('challengesystem.set.messageinterval.usage','Usage: !$1 set messageInterval <Number>. Current setting: $2 seconds.');
+$.lang.register('challengesystem.set.messageinterval.usage','Verwendung: !$1 set messageInterval <Number>. Current setting: $2 seconds.');
 $.lang.register('challengesystem.set.messageinterval.success','messageInterval has been successfully set to $2 seconds.');
-$.lang.register('challengesystem.set.challengeinterval.usage','Usage: !$1 set challengeinterval <Number>. Current setting: $2 seconds.');
+$.lang.register('challengesystem.set.challengeinterval.usage','Verwendung: !$1 set challengeinterval <Number>. Current setting: $2 seconds.');
 $.lang.register('challengesystem.set.challengeinterval.success','challengeinterval has been successfully set to $2 seconds.');
-$.lang.register('challengesystem.set.recovery.usage','Usage: !$1 set recovery <Number>. Current setting: $2 minutes.');
+$.lang.register('challengesystem.set.recovery.usage','Verwendung: !$1 set recovery <Number>. Current setting: $2 minutes.');
 $.lang.register('challengesystem.set.recovery.success','recovery has been successfully set to $2 minutes.');
-$.lang.register('challengesystem.set.captions.usage','Usage: !$1 set captions <Number>. Set to 0 for results only. Current setting: $2.');
+$.lang.register('challengesystem.set.captions.usage','Verwendung: !$1 set captions <Number>. Set to 0 for results only. Current setting: $2.');
 $.lang.register('challengesystem.set.captions.success','captions has been successfully set to $2.');
-$.lang.register('challengesystem.set.basecommand.usage','Usage: !$1 set baseCommand <string>. Sets the base Command. WARNING! Changing the basecommand will reset permissions!');
+$.lang.register('challengesystem.set.basecommand.usage','Verwendung: !$1 set baseCommand <string>. Sets the base Command. WARNING! Changing the basecommand will reset permissions!');
 $.lang.register('challengesystem.set.basecommand.success','baseCommand has been successfully set to !$1.');
 $.lang.register('challengesystem.set.basecommand.failed','baseCommand cannot be set to !$1, because that command already exists!');
 

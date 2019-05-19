@@ -27,9 +27,9 @@ $.lang.register('payactive.active.user', 'The active user was:- $1.');
 $.lang.register('payactive.active.users', 'The active users were:- $1.');
 $.lang.register('payactive.paid.fail', 'Looks like there have not been any active users during the pay active.');
 
-$.lang.register('payactive.set.payout.usage', '$1, Sets the payout amount. Usage: !payactive set payout <amount>');
-$.lang.register('payactive.set.chatmessage.usage', '$1, Enables/disables chat messages. Usage: !payactive set chatmessage <true | false>');
-$.lang.register('payactive.set.userentrymessage.usage', '$1, Enables/disables per user entry messages. Usage: !payactive set userentrymessage <true | false>');
+$.lang.register('payactive.set.payout.usage', '$1, Sets the payout amount. Verwendung: !payactive set payout <amount>');
+$.lang.register('payactive.set.chatmessage.usage', '$1, Enables/disables chat messages. Verwendung: !payactive set chatmessage <true | false>');
+$.lang.register('payactive.set.userentrymessage.usage', '$1, Enables/disables per user entry messages. Verwendung: !payactive set userentrymessage <true | false>');
 
 $.lang.register('payactive.set.payout.pass', '$1, Pay Active has been set to $2.');
 $.lang.register('payactive.set.chatmessage.enabled', '$1, chat messages have been enabled for the payactive system.');

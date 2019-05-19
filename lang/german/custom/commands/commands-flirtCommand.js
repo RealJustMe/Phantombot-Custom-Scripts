@@ -1,38 +1,38 @@
 var listSelf = [
-	"Are you trying to flirt with yourself $1? Forever alone!"
+	"Versuchst du mit dir selbst zu flirten $1? Wie traurig!"
 ];
 
 var listOther = [
-    "$1 is winking at $2, what are you up to? ;)",
-    "$1 gives the most charming smile at $2, something is going on there!",
-    "$1 is flirting with insistance with $2...but $2 doesn\"t seem to give a fuck.",
-    "$1 and $2 just kissed! How cute!",
-    "$1 waves at $2 and wants to offer a drink! Yes or nay?",
-    "$1 is offering flowers to $2! Lovely!",
-    "$1 is having a lovely talk with $2, they are having a nice moment I can tell! <3",
-    "$1 is trying hard with $2...but I\"m not sure it\"s going anywhere!",
-    "$1 offered a drink to $2, I hope you like it! ;)",
-    "$2 accepted the drink offered by $1, but is a bit embarassed! :s",
-    "$1 just touched $2\"s butt...I\"m not sure it was appreciated!",
-    "$1 is caressing $2\"s butt and $2 is winking at $1!",
-    "$1 stole a kiss from $2! But got slapped in the face!",
-    "$1 is cuddling with $2! How cute!",
-    "$1 is using the best pick-up line wiht $2...is it working?",
-    "$1 gave $2 a red rose! Love is in the air!",
-    "$1 is trying to smile in a sexy way...but $2 is a bit creeped out!",
-    "$1 just told the best joke to $2, they are having fun there! <3",
-    "$2 is running away because $1 just did the most terrible dance!",
-    "$1 is going crazy on the dance floor with $2! Sweet couple!",
-    "$1 offered a wedding ring to $2 but got slapped in the face! They\"re not even dating!",
-    "$1 is winking at $2 while pointing to the bedroom, but $2 just ran away!",
-    "$1 is showing off nice heart panties! But $2 is not impressed!",
-    "$1 is doing as stip tease for $2! But fell down and broke a leg!",
-    "$1 gave an air kiss to $2 and got one back! <3",
-    "$1 is hugging $2 very tenderly!",
-    "$1 is doing a magic trick to impress $2! Is it working?",
-    "$1 just shot a cupid\"s arrow into $2\"s heart...but it was a real arrow and $2 died! Geez!",
-    "$1 is kissing $2 on the hand very gently! How sweet!",
-    "$1 and $2 are having a very long and passionate kiss!"
+    "$1 zwinkert $2 an, na was hast du vor? ;)",
+    "$1 schenkt $2 das charmanteste Lächeln, da ist doch etwas im Gange!",
+    "$1 flirtet beharrlich mit $2... aber $2 ist das scheißegal.",
+    "$1 und $2 haben sich gerade geküsst! Wie süß!",
+    "$1 winkt $2 zu und möchte einen Drink spendieren! Ja oder nein?",
+    "$1 hat Blumen für $2! Liebreizend!",
+    "$1 führt ein langes Gespräch mit $2, sie haben eine schöne Zeit, das sehe ich! <3",
+    "$1 strengt sich bei $2 an... aber ich bin nicht sicher, ob das zu etwas führt!",
+    "$1 hat $2 einen Drink angeboten, ich hoffe er schmeckt! ;)",
+    "$2 nimmt den Drink von $1 an, aber ist ein bisschen verlegen! :s",
+    "$1 hat $2 an den Hintern gefasst... Ich bin nicht sicher ob das geschätzt wurde!",
+    "$1 streichelt $2's Hintern uns $2 zwinkert $1 an!",
+    "$1 erschleicht sich einen Kuss von $2! Aber fängt sich einen Schlag ins Gesicht ein!",
+    "$1 kuschelt mit $2! Wie süß!",
+    "$1 benutzt den besten Anmachspruch bei $2... ob es funktioniert?",
+    "$1 gab $2 eine rote Rose! Es liegt Liebe in der Luft!",
+    "$1 versucht sexy zu lächeln... aber $2 ist ein bisschen verstört!",
+    "$1 hat gerade $2 den besten Witz erzählt, die beiden haben so viel Spaß! <3",
+    "$2 rennt weg weil $1 gerade den schrecklichsten Tanz aufgeführt hat!",
+    "$1 lassen die Sau auf der Tanzfläche raus $2! Hübsches Paar!",
+    "$1 bietet $2 einen Verlobungsring an aber fängt sich eine ein! Sie sind nicht einmal zusammen!",
+    "$1 zwinkert $2 an und zeigt in Richtung Schlafzimmer, aber $2 rennt einfach weg!",
+    "$1 führt nette Unterwäsche mit Herzchen vor! Aber $2 ist nicht beeindruckt!",
+    "$1 macht einen Striptease für $2! Aber fiel hin und bricht sich ein Bein!",
+    "$1 gibt $2 einen Luftkuss und bekommt einen zurück! <3",
+    "$1 umarmt $2 sehr innig!",
+    "$1 macht einen Zaubertrick, um $2 zu beeindrucken! Ob das funktioniert?",
+    "$1 hat Armors Pfeil in $s's Herz geschossen... Aber es war ein echter Pfeil und $2 stirbt! Meine Güte!",
+    "$1 küsst $2 sehr sanft auf die Hand! Wie edel!",
+    "$1 und $2 haben einen sehr langen und leidenschaftlichen Kuss!"
 ];
 
 var countSelf = 0;
@@ -47,4 +47,4 @@ listOther.forEach(function(item) {
 	$.lang.register('flirtcommand.other.'+countOther, item);
 });
 
-$.lang.register('flirtcommand.console.loaded', 'Found flirt command messages: $1 self, $2 other.');
+$.lang.register('flirtcommand.console.loaded', 'Flirtnachrichten gefunden: $1 mit sich selbst, $2 mit anderen.');

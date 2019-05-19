@@ -1,4 +1,4 @@
-$.lang.register('heistsystem.heist.usage', 'Usage: !heist [$1].');
+$.lang.register('heistsystem.heist.usage', 'Verwendung: !heist [$1].');
 $.lang.register('heistsystem.alreadyjoined', 'You have already joined the heist!');
 $.lang.register('heistsystem.completed', 'The heist ended! Survivors are: $1.');
 $.lang.register('heistsystem.completed.no.win', 'The heist ended! There are no survivors.');
@@ -12,7 +12,7 @@ $.lang.register('heistsystem.loaded', 'Loaded heist stories (found $1).');
 $.lang.register('heistsystem.payoutwhisper', 'Adventure completed, $1 + $2 has been added to your balance.');
 $.lang.register('heistsystem.runstory', 'Starting heist "$1" with $2 player(s).');
 $.lang.register('heistsystem.set.success', 'Set $1 to $2.');
-$.lang.register('heistsystem.set.usage', 'Usage: !heist set [settingname] [value].');
+$.lang.register('heistsystem.set.usage', 'Verwendung: !heist set [settingname] [value].');
 $.lang.register('heistsystem.start.success', '$1 is trying get a team together for some serious heist business! Use "!heist [$2]" to join in!');
 $.lang.register('heistsystem.tamagotchijoined', '$1 is also joining the heist.');
 $.lang.register('heistsystem.top5', 'The top 5 heisters are: $1.');

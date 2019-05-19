@@ -15,7 +15,7 @@ $.lang.register('number.toggle.message', '$1, The number game timer has been $2.
 
 //!number timer
 $.lang.register('number.timer.pass', '$1, The number game timer has been $2.');
-$.lang.register('number.timer.usage', '$1, Usage: !number timer [seconds].');
+$.lang.register('number.timer.usage', '$1, Verwendung: !number timer [seconds].');
 
 //!number show
 $.lang.register('number.show.pass', '$1, The previous number was $2.');
@@ -28,4 +28,4 @@ $.lang.register('number.winner.fail', '$1, There hasnt been any winners yet :)')
 //!number generate
 $.lang.register('number.generate.pass', '$1, Generated a number between $2 and $3!');
 $.lang.register('number.generate.fail', '$1, Number game is already active!');
-$.lang.register('number.generate.usage', '$1, Usage: !number generate [min] [max]');
+$.lang.register('number.generate.usage', '$1, Verwendung: !number generate [min] [max]');

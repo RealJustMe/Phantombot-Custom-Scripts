@@ -17,22 +17,22 @@
 /**
  * Main health strings
  */
-$.lang.register('healthsystem.health.usage', 'Usage: !$1 [ hydration | hunger | movement | sleep | wellbeing | toggle ]');
+$.lang.register('healthsystem.health.usage', 'Verwendung: !$1 [ hydration | hunger | movement | sleep | wellbeing | toggle ]');
 $.lang.register('healthsystem.health.offline', '!$1 $2 can only be used when $3 is live!');
 
 /**
  * Settings health strings
  */
 // usage strings
-$.lang.register('healthsystem.settings.usage', 'Usage: !$1 [ set | check ]');
-$.lang.register('healthsystem.settings.usage.set', 'Usage: !$1 set [ hydration | hunger | movement | sleep | wellbeing ]');
-$.lang.register('healthsystem.settings.usage.set.hydration', 'Usage: !$1 set hydration [ oz | timer ] <int>');
-$.lang.register('healthsystem.settings.usage.set.hunger', 'Usage: !$1 set hunger [ timer ] <int>');
-$.lang.register('healthsystem.settings.usage.set.movement', 'Usage: !$1 set movement [ timer ] <int>');
-$.lang.register('healthsystem.settings.usage.set.sleep', 'Usage: !$1 set sleep [ timer ] <int>');
-$.lang.register('healthsystem.settings.usage.set.wellbeing', 'Usage: !$1 set wellbeing [ timer ] <int>');
+$.lang.register('healthsystem.settings.usage', 'Verwendung: !$1 [ set | check ]');
+$.lang.register('healthsystem.settings.usage.set', 'Verwendung: !$1 set [ hydration | hunger | movement | sleep | wellbeing ]');
+$.lang.register('healthsystem.settings.usage.set.hydration', 'Verwendung: !$1 set hydration [ oz | timer ] <int>');
+$.lang.register('healthsystem.settings.usage.set.hunger', 'Verwendung: !$1 set hunger [ timer ] <int>');
+$.lang.register('healthsystem.settings.usage.set.movement', 'Verwendung: !$1 set movement [ timer ] <int>');
+$.lang.register('healthsystem.settings.usage.set.sleep', 'Verwendung: !$1 set sleep [ timer ] <int>');
+$.lang.register('healthsystem.settings.usage.set.wellbeing', 'Verwendung: !$1 set wellbeing [ timer ] <int>');
 // check strings
-$.lang.register('healthsystem.settings.check.usage', 'Usage: !$1 check [ hydration | hunger | movement | sleep | wellbeing ]');
+$.lang.register('healthsystem.settings.check.usage', 'Verwendung: !$1 check [ hydration | hunger | movement | sleep | wellbeing ]');
 $.lang.register('healthsystem.settings.check.hydration', '$1 settings set to: HydrationOZ: $2 HydrationTimer: $3 HydrationToggle: $4');
 $.lang.register('healthsystem.settings.check.hunger', '$1 settings set to: HungerTimer: $2 HungerToggle: $3');
 $.lang.register('healthsystem.settings.check.movement', '$1 settings set to: MovementTimer: $2 MovementToggle: $3');
@@ -91,7 +91,7 @@ $.lang.register('healthsystem.wellbeing.command.9', 'Life goes by too quickly. S
 /**
  * health toggle strings
  */
-$.lang.register('healthsystem.toggle.usage', 'Usage: !$1 toggle [ hydration | hunger | movement | sleep | wellbeing ].');
+$.lang.register('healthsystem.toggle.usage', 'Verwendung: !$1 toggle [ hydration | hunger | movement | sleep | wellbeing ].');
 $.lang.register('healthsystem.toggle.setting.pass', '$1 has been set to $2.');
 $.lang.register('healthsystem.toggle.setting.fail', '$1 toggle not found.');
 

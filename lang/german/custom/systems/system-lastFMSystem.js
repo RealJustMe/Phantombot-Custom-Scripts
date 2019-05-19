@@ -17,7 +17,7 @@ $.lang.register('lastfm.latest.song.auto', '[♫] Now Playing: $1');
 
 $.lang.register('lastfm.setting.changed', '$1 $2 has been set to $3.');
 
-$.lang.register('lastfm.toggle.useage', '$1, Useage: !lastfm toggle [type].');
+$.lang.register('lastfm.toggle.useage', '$1, Verwendung: !lastfm toggle [type].');
 
 $.lang.register('lastfm.toggle.setting.pass', '$1 $2 toggle has been set to $3.');
 $.lang.register('lastfm.toggle.setting.fail', '$1 $2 is not one of the listed toggles.');

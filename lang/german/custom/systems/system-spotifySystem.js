@@ -17,7 +17,7 @@ $.lang.register('spotify.latest.song.auto', '[♫] Now Playing: $1');
 
 $.lang.register('spotify.setting.changed', '$1 $2 has been set to $3.');
 
-$.lang.register('spotify.toggle.useage', '$1, Useage: !spotify toggle [type].');
+$.lang.register('spotify.toggle.useage', '$1, Verwendung: !spotify toggle [type].');
 
 $.lang.register('spotify.toggle.setting.pass', '$1 $2 toggle has been set to $3.');
 $.lang.register('spotify.toggle.setting.fail', '$1 $2 is not one of the listed toggles.');
