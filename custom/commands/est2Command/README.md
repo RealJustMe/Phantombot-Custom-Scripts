@@ -4,9 +4,9 @@
 This is a ETS2 modules made by Codes2Much.
 
 ## Download
-- [x] [Download est2Command](https://raw.githubusercontent.com/Codes2Much/Phantombot-Custom-Scripts/master/custom/commands/est2Command/est2Command.js "est2Command")
-- [x] [Download commands-est2Command](https://raw.githubusercontent.com/Codes2Much/Phantombot-Custom-Scripts/master/lang/english/custom/commands/commands-ets2Command.js "commands-est2Command")
-- [x] [Download ets2-telemetry-server](https://raw.githubusercontent.com/Codes2Much/Phantombot-Custom-Scripts/master/external/ets2-telemetry-server.zip "ets2-telemetry-server")
+- [x] [Download est2Command](/custom/commands/est2Command/est2Command.js?raw=true "est2Command")
+- [x] [Download commands-est2Command](/lang/english/custom/commands/commands-ets2Command.js?raw=true "commands-est2Command")
+- [x] [Download ets2-telemetry-server](/external/ets2-telemetry-server.zip?raw=true "ets2-telemetry-server")
 
 ## Current Script Version:
 - 1.0.1

@@ -4,8 +4,8 @@
 This is a FriendCode modules made by Codes2Much.
 
 ## Download
-- [x] [Download fcCommand](https://raw.githubusercontent.com/Codes2Much/Phantombot-Custom-Scripts/master/custom/commands/fcCommand/fcCommand.js "fcCommand")
-- [x] [Download commands-fcCommand](https://raw.githubusercontent.com/Codes2Much/Phantombot-Custom-Scripts/master/lang/english/custom/commands/commands-fcCommand.js "commands-fcCommand")
+- [x] [Download fcCommand](/custom/commands/fcCommand/fcCommand.js?raw=true "fcCommand")
+- [x] [Download commands-fcCommand](/lang/english/custom/commands/commands-fcCommand.js?raw=true "commands-fcCommand")
 
 ## Current Script Version:
 - 1.0.0

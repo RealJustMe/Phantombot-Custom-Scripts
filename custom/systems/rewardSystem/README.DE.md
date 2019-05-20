@@ -4,8 +4,8 @@
 This is a Reward System modules made by Codes2Much.
 
 ## Download
-- [x] [Download rewardSystem](https://raw.githubusercontent.com/Codes2Much/Phantombot-Custom-Scripts/master/custom/systems/rewardSystem/rewardSystem.js "rewardSystem")
-- [x] [Download system-rewardSystem](https://raw.githubusercontent.com/Codes2Much/Phantombot-Custom-Scripts/master/lang/english/custom/systems/system-rewardSystem.js "system-rewardSystem")
+- [x] [Download rewardSystem](/custom/systems/rewardSystem/rewardSystem.js?raw=true "rewardSystem")
+- [x] [Download system-rewardSystem](/lang/english/custom/systems/system-rewardSystem.js?raw=true "system-rewardSystem")
 
 ## Current Script Version:
 - 1.0.0

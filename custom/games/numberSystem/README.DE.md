@@ -4,8 +4,8 @@
 This is a Number System modules made by Codes2Much.
 
 ## Download
-- [x] [Download numberSystem](https://raw.githubusercontent.com/Codes2Much/Phantombot-Custom-Scripts/master/custom/games/numberSystem/numberSystem.js "numberSystem")
-- [x] [Download system-numberSystem](https://raw.githubusercontent.com/Codes2Much/Phantombot-Custom-Scripts/master/lang/english/custom/games/games-numberSystem.js "system-numberSystem")
+- [x] [Download numberSystem](/custom/games/numberSystem/numberSystem.js?raw=true "numberSystem")
+- [x] [Download system-numberSystem](/lang/english/custom/games/games-numberSystem.js?raw=true "system-numberSystem")
 
 ## Current Script Version:
 - 1.0.0
