@@ -4,7 +4,7 @@
 This is a Store System modules made by Codes2Much.
 
 ## Download
-- [x] [Download storeSystem](https://raw.githubusercontent.com/Codes2Much/Phantombot-Custom-Scripts/master/english/custom/systems/storeSystem/storeSystem.js "storeSystem")
+- [x] [Download storeSystem](https://raw.githubusercontent.com/Codes2Much/Phantombot-Custom-Scripts/master/custom/systems/storeSystem/storeSystem.js "storeSystem")
 - [x] [Download system-storeSystem](https://raw.githubusercontent.com/Codes2Much/Phantombot-Custom-Scripts/master/lang/english/custom/systems/system-storeSystem.js "system-storeSystem")
 
 ## Current Script Version:
