@@ -13,26 +13,26 @@
  */
  
 //Pay Active System language file
-$.lang.register('payactive.check.pass', '$1, Pay Active is set to $2.');
+$.lang.register('payactive.check.pass', '$1, Aktivitätsbonus wurde gesetzt auf $2.');
 
-$.lang.register('payactive.enabled.pass', '$1, the payactive has been enabled.');
-$.lang.register('payactive.disabled.pass', '$1, the payactive has been disabled.');
+$.lang.register('payactive.enabled.pass', '$1, der Aktivitätsbonus wurde aktiviert.');
+$.lang.register('payactive.disabled.pass', '$1, der Aktivitätsbonus wurde deaktiviert.');
 
-$.lang.register('payactive.add.pass', '$1, you have been added to the payactive.');
+$.lang.register('payactive.add.pass', '$1, du erhältst den Aktivitätsbonus.');
 
-$.lang.register('payactive.paid.pass', 'The payactive has been paid out to $1 active $2.');
+$.lang.register('payactive.paid.pass', 'Der Aktivitätsbonus wurde an $1 aktive $2 ausgezahlt.');
 $.lang.register('payactive.paid.user', '');
 
-$.lang.register('payactive.active.user', 'The active user was:- $1.');
-$.lang.register('payactive.active.users', 'The active users were:- $1.');
-$.lang.register('payactive.paid.fail', 'Looks like there have not been any active users during the pay active.');
+$.lang.register('payactive.active.user', 'Der aktive Chatter war:- $1.');
+$.lang.register('payactive.active.users', 'Die aktiven Chatter waren:- $1.');
+$.lang.register('payactive.paid.fail', 'Offenbar war niemand im Zeitraum des Aktivitätsbonus aktiv.');
 
-$.lang.register('payactive.set.payout.usage', '$1, Sets the payout amount. Verwendung: !payactive set payout <amount>');
-$.lang.register('payactive.set.chatmessage.usage', '$1, Enables/disables chat messages. Verwendung: !payactive set chatmessage <true | false>');
-$.lang.register('payactive.set.userentrymessage.usage', '$1, Enables/disables per user entry messages. Verwendung: !payactive set userentrymessage <true | false>');
+$.lang.register('payactive.set.payout.usage', '$1, Setzt die Bonusauszahlung. Verwendung: !payactive set payout <Summe>');
+$.lang.register('payactive.set.chatmessage.usage', '$1, Aktiviert/deaktiviert Chatnachrichten. Verwendung: !payactive set chatmessage <true | false>');
+$.lang.register('payactive.set.userentrymessage.usage', '$1, Aktiviert/deaktiviert Benutzerspezifische Bonusnachrichten. Verwendung: !payactive set userentrymessage <true | false>');
 
-$.lang.register('payactive.set.payout.pass', '$1, Pay Active has been set to $2.');
-$.lang.register('payactive.set.chatmessage.enabled', '$1, chat messages have been enabled for the payactive system.');
-$.lang.register('payactive.set.chatmessage.disabled', '$1, chat messages have been disabled for the payactive system.');
-$.lang.register('payactive.set.userentrymessage.enabled', '$1, per user entry messages have been enabled for the payactive system.');
-$.lang.register('payactive.set.userentrymessage.disabled', '$1, per user entry messages have been disabled for the payactive system.');
+$.lang.register('payactive.set.payout.pass', '$1, der Aktivitätsbonus wurde gesetzt auf $2.');
+$.lang.register('payactive.set.chatmessage.enabled', '$1, Chatnachrichten für den Aktivitätsbonus wurden aktiviert.');
+$.lang.register('payactive.set.chatmessage.disabled', '$1, Chatnachrichten für den Aktivitätsbonus wurden deaktiviert');
+$.lang.register('payactive.set.userentrymessage.enabled', '$1, Benutzerspezifische Bonusnachrichtenfür den Aktivitätsbonus wurden aktiviert.');
+$.lang.register('payactive.set.userentrymessage.disabled', '$1, Benutzerspezifische Bonusnachrichtenfür den Aktivitätsbonus wurden deaktiviert.');

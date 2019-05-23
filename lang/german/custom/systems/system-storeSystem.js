@@ -1,18 +1,18 @@
 //store main command
-$.lang.register('store.usage', 'Type "~store [#]" in chat, where # corresponds to the store number you\'d like to store. Check out the Store: $1');
-$.lang.register('store.accept', '$1, has baught $2 for $3.');
-$.lang.register('store.decline', '$1, Sorry there is no item to store numbered $2.');
-$.lang.register('store.baught', '$1, Sorry but it looks like you have already baught $2.');
-$.lang.register('store.nocost', '$1, but looks like you dont have enough $2 for $3.');
+$.lang.register('store.usage', 'Benutze "~store [#]" im Chat,  wobei # die Nummer der Ware ist, die du kaufen möchtest. Sieh dir die Waren an: $1');
+$.lang.register('store.accept', '$1, hat $2 für $3 gekauft.');
+$.lang.register('store.decline', '$1, Entschuldigung, es gibt keine Ware mit der Nummer $2.');
+$.lang.register('store.baught', '$1, Entschuldigung, aber du hast $2 bereits gekauft.');
+$.lang.register('store.nocost', '$1, es sieht so aus als hättest du nicht genug $2 für $3.');
 
 //store add/edit command
-$.lang.register('store.edit.usage', '$1, Type "~store edit [#] [cost] [stock] [item]" in chat, where # corresponds to the store number you\'d like to edit.');
-$.lang.register('store.edit.success-new', 'Added new store $1 for $2 with stoke: $3 | name: $4');
-$.lang.register('store.edit.success-update', 'Updated store $1 for $2 with stoke: $3 | name: $4');
-$.lang.register('store.edit.success-deleted', 'Deleted store $1');
+$.lang.register('store.edit.usage', '$1, Benutze "~store edit [#] [Kosten] [Vorrat] [Ware]" im Chat, wobei # die Nummer der Ware ist, die du ändern möchtest.');
+$.lang.register('store.edit.success-new', 'Neue Ware $1 im Geschäft hinzugefügt. Preis: $2 | Vorrat: $3 | Name: $4');
+$.lang.register('store.edit.success-update', 'Ware $1 aktualisiert. Preis: $2 | Vorrat: $3 | Name: $4');
+$.lang.register('store.edit.success-deleted', 'Ware $1 gelöscht.');
 
 //store discord system
-$.lang.register('store.postto.usage', '$1, Type "~store channel [channel].');
-$.lang.register('store.postto.announce', '$1, Discord Announcement messages will now be posted to $2.');
-$.lang.register('store.toggle.announce', '$1, Discord Announcement has been $2.');
-$.lang.register('discord.store.announce.embedtitle', 'New Redemption!');
+$.lang.register('store.postto.usage', '$1, Benutze "~store channel [Kanal].');
+$.lang.register('store.postto.announce', '$1, Discord-Ankündigungen werden nach $2 gepostet.');
+$.lang.register('store.toggle.announce', '$1, Discord-Ankündigungen wurden $2.');
+$.lang.register('discord.store.announce.embedtitle', 'Ware gekauft!');

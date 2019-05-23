@@ -10,14 +10,14 @@
  * Contributors:
  * UsernamesSuck
  */
-$.lang.register('spotify.error.404', '>> [spotifySystem] The username $1 or apikey $2 for lastFm is incorrect and must be changed.');
+$.lang.register('spotify.error.404', '>> [spotifySystem] Der Benutzername $1 oder API-Key $2 für SPotify ist inkorrekt und muss geändert werden.');
 
-$.lang.register('spotify.latest.song', '$1 [♫] Now Playing: $2');
-$.lang.register('spotify.latest.song.auto', '[♫] Now Playing: $1');
+$.lang.register('spotify.latest.song', '$1 [♫] Aktuelles Lied: $2');
+$.lang.register('spotify.latest.song.auto', '[♫] Aktuelles Lied: $1');
 
-$.lang.register('spotify.setting.changed', '$1 $2 has been set to $3.');
+$.lang.register('spotify.setting.changed', '$1 $2 wurde gesetzt auf $3.');
 
-$.lang.register('spotify.toggle.useage', '$1, Verwendung: !spotify toggle [type].');
+$.lang.register('spotify.toggle.useage', '$1, Verwendung: !spotify toggle [Typ].');
 
-$.lang.register('spotify.toggle.setting.pass', '$1 $2 toggle has been set to $3.');
-$.lang.register('spotify.toggle.setting.fail', '$1 $2 is not one of the listed toggles.');
+$.lang.register('spotify.toggle.setting.pass', '$1 $2 Schalter wurde gesetzt auf $3.');
+$.lang.register('spotify.toggle.setting.fail', '$1 $2 ist keiner der aufgelisteten Schalter.');

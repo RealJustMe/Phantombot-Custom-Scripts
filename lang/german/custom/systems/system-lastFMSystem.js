@@ -10,14 +10,14 @@
  * Contributors:
  * UsernamesSuck
  */
-$.lang.register('lastfm.error.404', '>> [lastFMSystem] The username $1 or apikey $2 for lastFm is incorrect and must be changed.');
+$.lang.register('lastfm.error.404', '>> [lastFMSystem] Der Benutzername $1 oder API-Key $2 für lastFm ist inkorrekt und muss geändert werden.');
 
-$.lang.register('lastfm.latest.song', '$1 [♫] Now Playing: $2');
-$.lang.register('lastfm.latest.song.auto', '[♫] Now Playing: $1');
+$.lang.register('lastfm.latest.song', '$1 [♫] Aktuelles Lied: $2');
+$.lang.register('lastfm.latest.song.auto', '[♫] Aktuelles Lied: $1');
 
-$.lang.register('lastfm.setting.changed', '$1 $2 has been set to $3.');
+$.lang.register('lastfm.setting.changed', '$1 $2 wurde gesetzt auf $3.');
 
-$.lang.register('lastfm.toggle.useage', '$1, Verwendung: !lastfm toggle [type].');
+$.lang.register('lastfm.toggle.useage', '$1, Verwendung: !lastfm toggle [Typ].');
 
-$.lang.register('lastfm.toggle.setting.pass', '$1 $2 toggle has been set to $3.');
-$.lang.register('lastfm.toggle.setting.fail', '$1 $2 is not one of the listed toggles.');
+$.lang.register('lastfm.toggle.setting.pass', '$1 $2 Schalter wurde gesetzt auf $3.');
+$.lang.register('lastfm.toggle.setting.fail', '$1 $2 keiner der aufgelisteten Schalter.');
