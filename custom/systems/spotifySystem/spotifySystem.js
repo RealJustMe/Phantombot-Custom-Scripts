@@ -113,7 +113,7 @@
                             $.consoleDebug("Running Spotify Update..."); //This is only here for bug fixing
                             spotify_latest = output;
                             if (spotify_announce) {// Announces song to chat
-                                $.say($.lang.get('spotify.latest.song.auto', output));
+                                $.say($.lang.get('spotify.latest.song', output));
                             }
                             if (overwrite_youtube) {// Writes to the Youtube player's song file (For OBS and stuff).
                                 $.writeToFile(output + ' ', youtube_path + 'currentsong.txt', false);
@@ -140,22 +140,24 @@
             action = args[0],
             action1 = args[1];
 
-        var ranked_sender = $.whisperPrefix($.username.resolve(sender));
-
         if (command.equalsIgnoreCase('spotify')) {
             if (!action) {
                 // Get JSON and parse stats
                 try {
-                    var json = JSON.parse(_getJSON("https://dakoda.ga/spotify/song?is_playing=1&refresh_token=" + spotify_apikey));
-                    // Iterate over stats types and add formatted string to output                
-                    if (json.track.artist) {
-                        var artist = json.track.artist,
-                            song = json.track.song,
-                            external_url = json.track.external_url,
-                            output = artist + " - " + song + " | " + external_url;
+                    var responce = getJSON("https://api.spotify.com/v1/me/player/currently-playing?is_playing=true");
+                    var json = JSON.parse(responce);
+                    if (json.item !== undefined) {
+                        if (json.item.name) {
+                            var artist = json.item.artists[0].name,
+                                song = json.item.name,
+                                external_url = json.item.external_urls.spotify,
+                                output = artist + " - " + song + " | " + external_url;
 
-                        $.say($.lang.get('spotify.latest.song', ranked_sender, output));
-                        return;
+                            $.say($.lang.get('spotify.latest.song', output));
+                        }
+                    } else {
+                        refreshToken();
+                        $.consoleDebug('Running Spotify Refresh Token...' + json.error.message);
                     }
                 }
                 catch (error) {
@@ -163,29 +165,29 @@
                 }
             } else if (action.equalsIgnoreCase('apikey')) {
                 if (!action1) {
-                    $.say($.lang.get('spotify.setting.change.failed', ranked_sender, 'apikey'));
+                    $.say($.whisperPrefix(sender) + $.lang.get('spotify.setting.change.failed', 'apikey'));
                     return;
                 }
                 $.setIniDbBoolean('spotifySettings', 'apikey', action1);
-                $.say($.lang.get('spotify.setting.changed', ranked_sender, 'apikey', '[key hidden]'));
+                $.say($.whisperPrefix(sender) + $.lang.get('spotify.setting.changed', 'apikey', '[key hidden]'));
                 reloadSpotify();
             } else if (action.equalsIgnoreCase('refreshkey')) {
                 if (!action1) {
-                    $.say($.lang.get('spotify.setting.change.failed', ranked_sender, 'refreshkey'));
+                    $.say($.whisperPrefix(sender) + $.lang.get('spotify.setting.change.failed', 'refreshkey'));
                     return;
                 }
                 $.setIniDbBoolean('spotifySettings', 'refreshkey', action1);
-                $.say($.lang.get('spotify.setting.changed', ranked_sender, 'refreshkey', '[key hidden]'));
+                $.say($.whisperPrefix(sender) + $.lang.get('spotify.setting.changed', 'refreshkey', '[key hidden]'));
                 reloadSpotify();
             } else if (action.equalsIgnoreCase('announce')) {
                 spotify_announce = !spotify_announce;
                 $.setIniDbBoolean('spotifySettings', 'announce', spotify_announce);
-                $.say($.lang.get('spotify.setting.changed', ranked_sender, 'announce', spotify_announce ? 'enabled' : 'disabled'));
+                $.say($.whisperPrefix(sender) + $.lang.get('spotify.setting.changed', 'announce', spotify_announce ? 'enabled' : 'disabled'));
                 reloadSpotify();
             } else if (action.equalsIgnoreCase('writeyt')) {
                 overwrite_youtube = !overwrite_youtube;
                 $.setIniDbBoolean('spotifySettings', 'writeYt', overwrite_youtube);
-                $.say($.lang.get('spotify.setting.changed', ranked_sender, 'write file', overwrite_youtube ? 'enabled' : 'disabled'));
+                $.say($.whisperPrefix(sender) + $.lang.get('spotify.setting.changed', 'write file', overwrite_youtube ? 'enabled' : 'disabled'));
                 reloadSpotify();
             }
         }
