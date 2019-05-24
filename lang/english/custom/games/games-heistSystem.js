@@ -36,7 +36,7 @@ $.lang.register('heistsystem.stories.3.title', 'Vampires?!');
 $.lang.register('heistsystem.stories.3.difficulty', 30);
 $.lang.register('heistsystem.stories.3.chapter.1', 'Ah, my dear friends! I may have found the heist of a lifetime. Namely the house of count Dracula is believed to be the bolts master! I\'m for going now!');
 $.lang.register('heistsystem.stories.3.chapter.2', 'It\'s him! (caught) got slaughtered violently!');
-$.lang.register('heistsystem.stories.3.chapter.3', 'That was a close call, I don\'t think I\'ve been bitten. you? Ow well, (survivors), here\'s your share! ~Transforms into a bat and flutters off~');
+$.lang.register('heistsystem.stories.3.chapter.3', 'That was a close call, I don\'t think I\'ve been bitten. you? Ow well, (survivors), here\'s your share! !Transforms into a bat and flutters off!');
 
 $.lang.register('heistsystem.stories.4.title', 'Cereal');
 $.lang.register('heistsystem.stories.4.difficulty', 40);

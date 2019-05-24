@@ -9,5 +9,5 @@ $.lang.register('bountyhunter.fail', 'successfully hunted down $1 and took $2 da
 $.lang.register('bountyhunter.nopoints', 'Sorry but you only have $1 but you require a minimum of $2 to play BountyHunter.');
 $.lang.register('bountyhunter.sender.current', 'you are the current bounty. Don\'t hunt yourself down.');
 $.lang.register('bountyhunter.sender.last', 'You where the last bounty hunter someone else needs to hunt down the bounty first.');
-$.lang.register('bountyhunter.reset', '$1 has become the new Bounty with $2 health. Start to take him down by doing ~bountyhunt.');
+$.lang.register('bountyhunter.reset', '$1 has become the new Bounty with $2 health. Start to take him down by doing !bountyhunt.');
 

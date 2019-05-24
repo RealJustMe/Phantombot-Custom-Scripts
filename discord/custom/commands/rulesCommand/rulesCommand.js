@@ -67,7 +67,7 @@
                     .withColor(65, 123, 164)
                     .withThumbnail('https://dakoda.ga/bot/images/twitch.png')
                     .withTitle(':link: How to Link To Twitch')
-                    .appendField('Please link your account to twitch.. Just Follow these steps here:', 'Step 1. Link your Discord: Type `~account link` into <#183551693160579072>! \n\rStep 2. Follow the message the bot will private message you.', true)
+                    .appendField('Please link your account to twitch.. Just Follow these steps here:', 'Step 1. Link your Discord: Type `!account link` into <#183551693160579072>! \n\rStep 2. Follow the message the bot will private message you.', true)
                     .build());
             }, 2500);
 
@@ -76,7 +76,7 @@
                     .withColor(100, 65, 164)
                     .withThumbnail('https://dakoda.ga/bot/images/twitter.png')
                     .withTitle(':link: How to Link To Twitter')
-                    .appendField('Please link your twitter account to twitch.. Just Follow these steps here:', 'Link: `~twitter register [username]` - Register your Twitter for rewards \n\rUnlink: !twitter unregister - Unregister your Twitter', true)
+                    .appendField('Please link your twitter account to twitch.. Just Follow these steps here:', 'Link: `!twitter register [username]` - Register your Twitter for rewards \n\rUnlink: !twitter unregister - Unregister your Twitter', true)
                     .build());
             }, 3000);
         }
