@@ -14,6 +14,7 @@ These are custom modules made by Codes2Much.
 - ### Games (Spiele)
     - Get [bountySystem (EN)](custom/games/bountySystem "bountySystem") - Hol dir [bountySystem (DE)](custom/games/bountySystem/README.DE.md "bountySystem")
     - Get [challengeSystem (EN)](custom/games/challengeSystem "challengeSystem") - Hol dir [challengeSystem (DE)](custom/games/challengeSystem/README.DE.md "challengeSystem")
+    - Get [chestSystem (EN)](custom/games/chestSystem "chestSystem") - Hol dir [chestSystem (DE)](custom/games/chestSystem/README.DE.md "chestSystem")
     - Get [defuseSystem (EN)](custom/games/defuseSystem "defuseSystem") - Hol dir [defuseSystem (DE)](custom/games/defuseSystem/README.DE.md "defuseSystem")
     - Get [hackSystem (EN)](custom/games/hackSystem "hackSystem") - Hol dir [hackSystem (DE)](custom/games/hackSystem "hackSystem")
     - Get [heistSystem (EN)](custom/games/heistSystem "heistSystem") - Hol dir [heistSystem (DE)](custom/games/heistSystem/README.DE.md "heistSystem")
