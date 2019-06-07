@@ -3,13 +3,13 @@
  *
  * Language file for healthSystem.js
  *
- * Current version 1.0.4
+ * Current version 2.0.0
  * https://community.phantombot.tv/t/wellness-feature-then-some/3931
  *
  * Original author: Dakoda
  *
  * Contributors:
- * ShadowDragon7015, Khryztoepher, BantomPhot
+ * ShadowDragon7015, Khryztoepher
  *
  *
  */
@@ -98,8 +98,8 @@ $.lang.register('healthsystem.toggle.setting.fail', '$1 toggle not found.');
 /**
  * health set strings
  */
-$.lang.register('healthsystem.settings.set.hydration','$2 settings have been changed to Hydration $3: $4');
-$.lang.register('healthsystem.settings.set.hunger','$2 settings have been changed to Hunger $3: $4');
-$.lang.register('healthsystem.settings.set.movement','$2 settings have been changed to Movement $3: $4');
-$.lang.register('healthsystem.settings.set.sleep','$2 settings have been changed to Sleep $3: $4');
-$.lang.register('healthsystem.settings.set.wellbeing','$2 settings have been changed to Wellbeing $3: $4');
+$.lang.register('healthsystem.settings.set.hydration', '$2 settings have been changed to Hydration $3: $4');
+$.lang.register('healthsystem.settings.set.hunger', '$2 settings have been changed to Hunger $3: $4');
+$.lang.register('healthsystem.settings.set.movement', '$2 settings have been changed to Movement $3: $4');
+$.lang.register('healthsystem.settings.set.sleep', '$2 settings have been changed to Sleep $3: $4');
+$.lang.register('healthsystem.settings.set.wellbeing', '$2 settings have been changed to Wellbeing $3: $4');

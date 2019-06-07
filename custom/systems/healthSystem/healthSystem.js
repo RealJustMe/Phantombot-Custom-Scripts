@@ -3,16 +3,16 @@
  *
  * A cool system for keeping yourself healthy.
  *
- * Current version 1.0.4
+ * Current version 2.0.0
  * https://community.phantombot.tv/t/wellness-feature-then-some/3931
  *
  * Original author: Dakoda
  *
  * Contributors:
- * ShadowDragon7015, Khryztoepher, BantomPhot
+ * ShadowDragon7015, Khryztoepher
  *
  */
-(function(){
+(function () {
 	var wellbeingCountReminder,
 		wellbeingCountCommand;
 
@@ -45,7 +45,7 @@
      */
 	function reloadHealth() {
 		var newCommand = $.getSetIniDbString('healthSettings', 'baseCommand', 'health');
-			newCommand = newCommand.toLowerCase();
+		newCommand = newCommand.toLowerCase();
 		if (newCommand != baseCommand) {
 			if (!$.commandExists(newCommand)) {
 				// get commands permissions
@@ -88,30 +88,30 @@
 
 		//Hydration Settings
 		hydrationoz = $.getIniDbNumber('healthSettings', 'hydrationoz'),
-		hydrationtimer = $.getIniDbNumber('healthSettings', 'hydrationtimer'),
-		hydrationtoggle = $.getIniDbBoolean('healthSettings', 'hydration');
+			hydrationtimer = $.getIniDbNumber('healthSettings', 'hydrationtimer'),
+			hydrationtoggle = $.getIniDbBoolean('healthSettings', 'hydration');
 
 		//Hunger Settings
 		hungertimer = $.getIniDbNumber('healthSettings', 'hungertimer'),
-		hungertoggle = $.getIniDbBoolean('healthSettings', 'hunger');
+			hungertoggle = $.getIniDbBoolean('healthSettings', 'hunger');
 
 		//Movement Settings
 		movementtimer = $.getIniDbNumber('healthSettings', 'movementtimer'),
-		movementtoggle = $.getIniDbBoolean('healthSettings', 'movement');
+			movementtoggle = $.getIniDbBoolean('healthSettings', 'movement');
 
 		//Sleep Settings
 		sleeptimer = $.getIniDbNumber('healthSettings', 'sleeptimer'),
-		sleeptoggle = $.getIniDbBoolean('healthSettings', 'sleep');
+			sleeptoggle = $.getIniDbBoolean('healthSettings', 'sleep');
 
 		//Wellbeing Settings
 		wellbeingtimer = $.getIniDbNumber('healthSettings', 'wellbeingtimer'),
-		wellbeingtoggle = $.getIniDbBoolean('healthSettings', 'wellbeing');
+			wellbeingtoggle = $.getIniDbBoolean('healthSettings', 'wellbeing');
 	}
 
 	/**
      * @function hydrationReminder
      */
-	function hydrationReminder(cmd, timer, sender){
+	function hydrationReminder(cmd, timer, sender) {
 		var uptime = $.getStreamUptime($.channelName);
 
 		//get oz count
@@ -119,16 +119,16 @@
 			hydrationcountml = (hydrationcountoz / 0.0351951).toFixed(2);
 
 		//check whether timer hit or someone used the command
-		if(timer && sender === 'reminder') {
+		if (timer && sender === 'reminder') {
 			//broadcast response
-			if($.isOnline($.channelName)){
+			if ($.isOnline($.channelName)) {
 				$.say($.lang.get('healthsystem.hydration.reminder', uptime, hydrationcountoz, hydrationcountml));
 				return;
 			}
 		} else {
-			if(timer) {
+			if (timer) {
 				//broadcast response
-				if($.isOnline($.channelName)){
+				if ($.isOnline($.channelName)) {
 					$.say($.whisperPrefix(sender) + $.lang.get('healthsystem.hydration.command', $.username.resolve($.channelName), uptime, hydrationcountoz, hydrationcountml));
 					return;
 				} else {
@@ -142,7 +142,7 @@
 	/**
      * @function hungerReminder
      */
-	function hungerReminder(cmd, timer, sender){
+	function hungerReminder(cmd, timer, sender) {
 		var uptime = $.getStreamUptime($.channelName);
 
 		//get hunger timer
@@ -150,16 +150,16 @@
 			timetoeat = $.getSetIniDbNumber('healthSettings', 'hungertimer') - (getUptimeMinutes() - (hungertime * $.getSetIniDbNumber('healthSettings', 'hungertimer')));
 
 		//check whether timer hit or someone used the command
-		if(timer && sender === 'reminder') {
+		if (timer && sender === 'reminder') {
 			//broadcast response
-			if($.isOnline($.channelName)){
+			if ($.isOnline($.channelName)) {
 				$.say($.lang.get('healthsystem.hunger.reminder', uptime));
 				return;
 			}
 		} else {
-			if(timer) {
+			if (timer) {
 				//broadcast response
-				if($.isOnline($.channelName)){
+				if ($.isOnline($.channelName)) {
 					$.say($.whisperPrefix(sender) + $.lang.get('healthsystem.hunger.command', $.username.resolve($.channelName), uptime, timetoeat));
 					return;
 				} else {
@@ -173,7 +173,7 @@
 	/**
      * @function movementReminder
      */
-	function movementReminder(cmd, timer, sender){
+	function movementReminder(cmd, timer, sender) {
 		var uptime = $.getStreamUptime($.channelName);
 
 		//get movement timer
@@ -181,16 +181,16 @@
 			timetomove = $.getSetIniDbNumber('healthSettings', 'movementtimer') - (getUptimeMinutes() - (movementtime * $.getSetIniDbNumber('healthSettings', 'movementtimer')));
 
 		//check whether timer hit or someone used the command
-		if(timer && sender === 'reminder') {
+		if (timer && sender === 'reminder') {
 			//broadcast response
-			if($.isOnline($.channelName)){
+			if ($.isOnline($.channelName)) {
 				$.say($.lang.get('healthsystem.movement.reminder', uptime));
 				return;
 			}
 		} else {
-			if(timer) {
+			if (timer) {
 				//broadcast response
-				if($.isOnline($.channelName)){
+				if ($.isOnline($.channelName)) {
 					$.say($.whisperPrefix(sender) + $.lang.get('healthsystem.movement.command', $.username.resolve($.channelName), uptime, timetomove));
 					return;
 				} else {
@@ -204,7 +204,7 @@
 	/**
      * @function sleepReminder
      */
-	function sleepReminder(cmd, timer, sender){
+	function sleepReminder(cmd, timer, sender) {
 		var uptime = $.getStreamUptime($.channelName);
 
 		//get movement timer
@@ -212,16 +212,16 @@
 			timetomove = $.getSetIniDbNumber('healthSettings', 'sleeptimer') - (getUptimeMinutes() - (sleeptime * $.getSetIniDbNumber('healthSettings', 'sleeptimer')));
 
 		//check whether timer hit or someone used the command
-		if(timer && sender === 'reminder') {
+		if (timer && sender === 'reminder') {
 			//broadcast response
-			if($.isOnline($.channelName)){
+			if ($.isOnline($.channelName)) {
 				$.say($.lang.get('healthsystem.sleep.reminder', uptime));
 				return;
 			}
 		} else {
-			if(timer) {
+			if (timer) {
 				//broadcast response
-				if($.isOnline($.channelName)){
+				if ($.isOnline($.channelName)) {
 					$.say($.whisperPrefix(sender) + $.lang.get('healthsystem.sleep.command', $.username.resolve($.channelName), uptime, timetomove));
 					return;
 				} else {
@@ -235,7 +235,7 @@
 	/**
      * @function wellbeingReminder
      */
-	function wellbeingReminder(cmd, timer, sender){
+	function wellbeingReminder(cmd, timer, sender) {
 		var uptime = $.getStreamUptime($.channelName),
 			randomNumber;
 
@@ -244,17 +244,17 @@
 			timetomove = $.getSetIniDbNumber('healthSettings', 'wellbeingtimer') - (getUptimeMinutes() - (wellbeingtime * $.getSetIniDbNumber('healthSettings', 'wellbeingtimer')));
 
 		//check whether timer hit or someone used the command
-		if(timer && sender === 'reminder') {
+		if (timer && sender === 'reminder') {
 			//broadcast response
-			if($.isOnline($.channelName)){
+			if ($.isOnline($.channelName)) {
 				randomNumber = $.randRange(1, wellbeingCountReminder - 1);
 				$.say($.lang.get('healthsystem.wellbeing.reminder.' + randomNumber, uptime));
 				return;
 			}
 		} else {
-			if(timer) {
+			if (timer) {
 				//broadcast response
-				if($.isOnline($.channelName)){
+				if ($.isOnline($.channelName)) {
 					randomNumber = $.randRange(1, wellbeingCountCommand - 1);
 					$.say($.whisperPrefix(sender) + $.lang.get('healthsystem.wellbeing.command.' + randomNumber, $.username.resolve($.channelName), uptime, timetomove));
 					return;
@@ -268,21 +268,21 @@
 	/**
      * @function reminderBot
      */
-	function reminderBot(){
-		if($.bot.isModuleEnabled('./custom/systems/healthSystem.js')){
-			if(hydrationtoggle == true){
+	function reminderBot() {
+		if ($.bot.isModuleEnabled('./custom/systems/healthSystem.js')) {
+			if (hydrationtoggle == true) {
 				hydrationReminder(null, checkTimer('hydrationtimer'), 'reminder');
 			}
-			if(hungertoggle == true){
+			if (hungertoggle == true) {
 				hungerReminder(null, checkTimer('hungertimer'), 'reminder');
 			}
-			if(movementtoggle == true){
+			if (movementtoggle == true) {
 				movementReminder(null, checkTimer('movementtimer'), 'reminder');
 			}
-			if(sleeptoggle == true){
+			if (sleeptoggle == true) {
 				sleepReminder(null, checkTimer('sleeptimer'), 'reminder');
 			}
-			if(wellbeingtoggle == true){
+			if (wellbeingtoggle == true) {
 				wellbeingReminder(null, checkTimer('wellbeingtimer'), 'reminder');
 			}
 		}
@@ -291,7 +291,7 @@
 	/**
      * @function getUptimeMinutes
      */
-	function getUptimeMinutes(){
+	function getUptimeMinutes() {
 		var uptimesec = $.getStreamUptimeSeconds($.channelName),
 			uptimeminutes = Math.floor(uptimesec / 60);
 		return uptimeminutes;
@@ -300,74 +300,70 @@
 	/**
      * @function checkTimer
      */
-	function checkTimer(timer){
+	function checkTimer(timer) {
 		var timerminutes = Math.floor($.getIniDbNumber('healthSettings', timer));
 		//prevent activation at start of stream!
 		var timerhits = getUptimeMinutes() / timerminutes;
-			timercheck = timerhits - Math.floor(timerhits);
-			if (getUptimeMinutes() < 5) {
-				return false;
-			}
-			$.consoleDebug('Health system: ' + timer + ' timer check >>> ' + !timercheck) ;
+		timercheck = timerhits - Math.floor(timerhits);
+		if (getUptimeMinutes() < 5) {
+			return false;
+		}
+		$.consoleDebug('Health system: ' + timer + ' timer check >>> ' + !timercheck);
 		return !timercheck;
 	}
 
 	/*
      * @function pushWellbeinReminder
-     * @info Pushes the entire wellbeing reminder list to the db, it does disable auto commit first to make this process a lot faster.
+     * @info Pushes the entire wellbeing reminder list.
      */
-    function pushWellbeinReminder() {
-    	var wellbeingReminderID,
-    		wellbeingReminderResponce = [];
+	function pushWellbeinReminder() {
+		var wellbeingReminderID,
+			wellbeingReminderResponce = [];
 
-        $.inidb.setAutoCommit(false);
-        for (wellbeingReminderID = 1; $.lang.exists('healthsystem.wellbeing.reminder.' + wellbeingReminderID); wellbeingReminderID++) {
-            wellbeingReminderResponce.push($.lang.get('healthsystem.wellbeing.reminder.' + wellbeingReminderID));            
-        }
-        wellbeingCountReminder = wellbeingReminderID;
+		for (wellbeingReminderID = 1; $.lang.exists('healthsystem.wellbeing.reminder.' + wellbeingReminderID); wellbeingReminderID++) {
+			wellbeingReminderResponce.push($.lang.get('healthsystem.wellbeing.reminder.' + wellbeingReminderID));
+		}
+		wellbeingCountReminder = wellbeingReminderID;
 
-        $.consoleDebug($.lang.get('healthsystem.wellbeing.reminder.loaded', wellbeingCountReminder - 1));
-        $.inidb.setAutoCommit(true);
-    }
+		$.consoleDebug($.lang.get('healthsystem.wellbeing.reminder.loaded', wellbeingCountReminder - 1));
+	}
 
     /*
      * @function pushWellbeinCommand
-     * @info Pushes the entire wellbeing command list to the db, it does disable auto commit first to make this process a lot faster.
+     * @info Pushes the entire wellbeing command list.
      */
-    function pushWellbeinCommand() {
-    	var wellbeingCommandID,
-    		wellbeingCommandResponce = [];
+	function pushWellbeinCommand() {
+		var wellbeingCommandID,
+			wellbeingCommandResponce = [];
 
-        $.inidb.setAutoCommit(false);
-        for (wellbeingCommandID = 1; $.lang.exists('healthsystem.wellbeing.command.' + wellbeingCommandID); wellbeingCommandID++) {
-            wellbeingCommandResponce.push($.lang.get('healthsystem.wellbeing.command.' + wellbeingCommandID));
-        }
-        wellbeingCountCommand = wellbeingCommandID;
+		for (wellbeingCommandID = 1; $.lang.exists('healthsystem.wellbeing.command.' + wellbeingCommandID); wellbeingCommandID++) {
+			wellbeingCommandResponce.push($.lang.get('healthsystem.wellbeing.command.' + wellbeingCommandID));
+		}
+		wellbeingCountCommand = wellbeingCommandID;
 
-        $.consoleDebug($.lang.get('healthsystem.wellbeing.command.loaded', wellbeingCountCommand - 1));
-        $.inidb.setAutoCommit(true);
-    }
+		$.consoleDebug($.lang.get('healthsystem.wellbeing.command.loaded', wellbeingCountCommand - 1));
+	}
 
     /*
      * @function pushWellbein
      * @info Pushes the entire wellbeing list to the db.
      */
-    function pushWellbein() {
-    	pushWellbeinReminder();
-    	pushWellbeinCommand();
-    }
+	function pushWellbein() {
+		pushWellbeinReminder();
+		pushWellbeinCommand();
+	}
 
     /**
      * @event command
      */
-    $.bind('command',function(event){
-	    var command = event.getCommand(),
-            sender = event.getSender(),
+	$.bind('command', function (event) {
+		var command = event.getCommand(),
+			sender = event.getSender(),
 			args = event.getArgs(),
-            action = args[0];
-			optionChoice = args[1];
-			optionValue = args[2];
-			optionValue2 = args[3];
+			action = args[0];
+		optionChoice = args[1];
+		optionValue = args[2];
+		optionValue2 = args[3];
 
 		if (command.equalsIgnoreCase(baseCommand)) {
 			if (action === undefined) {
@@ -383,16 +379,16 @@
 					$.say($.whisperPrefix(sender) + $.lang.get('healthsystem.toggle.usage', baseCommand));
 					return;
 				} else {
-                    var healthToggles = $.getIniDbBoolean('healthSettings', optionChoice);
-                    if (healthToggles == null) {
-                        $.say($.whisperPrefix(sender) + $.lang.get('healthsystem.toggle.setting.fail', optionChoice));
-                    } else {
-                        healthToggles = !healthToggles;
-                        $.inidb.set('healthSettings', optionChoice, healthToggles);
-                        $.say($.whisperPrefix(sender) + $.lang.get('healthsystem.toggle.setting.pass', optionChoice, (healthToggles === true ? $.lang.get('common.enabled') : $.lang.get('common.disabled'))));
-                        reloadHealth();
-                    }
-                }
+					var healthToggles = $.getIniDbBoolean('healthSettings', optionChoice);
+					if (healthToggles == null) {
+						$.say($.whisperPrefix(sender) + $.lang.get('healthsystem.toggle.setting.fail', optionChoice));
+					} else {
+						healthToggles = !healthToggles;
+						$.inidb.set('healthSettings', optionChoice, healthToggles);
+						$.say($.whisperPrefix(sender) + $.lang.get('healthsystem.toggle.setting.pass', optionChoice, (healthToggles === true ? $.lang.get('common.enabled') : $.lang.get('common.disabled'))));
+						reloadHealth();
+					}
+				}
 			}
 
 			/**
@@ -459,92 +455,92 @@
 			if (action.equalsIgnoreCase('set')) {
 				if (optionChoice === undefined) {
 					$.say($.whisperPrefix(sender) + $.lang.get('healthsystem.settings.usage.set', baseCommand + 'settings'));
-					return;	
+					return;
 				}
 				if (optionChoice.equalsIgnoreCase('hydration')) {
-					if ($.inidb.exists('healthSettings', optionChoice + '' +optionValue)) {
+					if ($.inidb.exists('healthSettings', optionChoice + '' + optionValue)) {
 						if ((optionValue2 === undefined) || isNaN(optionValue2) || (optionValue2 < 0)) {
 							$.say($.whisperPrefix(sender) + $.lang.get('healthsystem.settings.usage.set.hydration', baseCommand + 'settings'));
-							return;	
+							return;
 						} else {
 							if (optionValue.equalsIgnoreCase('oz')) {
 								$.say($.whisperPrefix(sender) + $.lang.get('healthsystem.settings.set.hydration', baseCommand + 'settings', optionChoice, optionValue, optionValue2));
 								hydrationoz = $.setIniDbBoolean('healthSettings', 'hydrationoz', optionValue2);
-							} 
+							}
 							if (optionValue.equalsIgnoreCase('timer')) {
 								$.say($.whisperPrefix(sender) + $.lang.get('healthsystem.settings.set.hydration', baseCommand + 'settings', optionChoice, optionValue, optionValue2));
 								hydrationtimer = $.setIniDbBoolean('healthSettings', 'hydrationtimer', optionValue2);
 							}
 							reloadHealth();
-							return;						
+							return;
 						}
 					} else {
 						$.say($.whisperPrefix(sender) + $.lang.get('healthsystem.settings.usage.set.hydration', baseCommand + 'settings'));
-						return;	
+						return;
 					}
 				} else if (optionChoice.equalsIgnoreCase('hunger')) {
-					if ($.inidb.exists('healthSettings', optionChoice + '' +optionValue)) {
+					if ($.inidb.exists('healthSettings', optionChoice + '' + optionValue)) {
 						if ((optionValue2 === undefined) || isNaN(optionValue2) || (optionValue2 < 0)) {
 							$.say($.whisperPrefix(sender) + $.lang.get('healthsystem.settings.usage.set.hunger', baseCommand + 'settings'));
-							return;	
+							return;
 						} else {
 							$.say($.whisperPrefix(sender) + $.lang.get('healthsystem.settings.set.hunger', baseCommand + 'settings', optionChoice, optionValue, optionValue2));
 							hungertimer = $.setIniDbBoolean('healthSettings', 'hungertimer', optionValue);
 							reloadHealth();
-							return;						
+							return;
 						}
 					} else {
 						$.say($.whisperPrefix(sender) + $.lang.get('healthsystem.settings.usage.set.hunger', baseCommand + 'settings'));
-						return;	
+						return;
 					}
 				} else if (optionChoice.equalsIgnoreCase('movement')) {
-					if ($.inidb.exists('healthSettings', optionChoice + '' +optionValue)) {
+					if ($.inidb.exists('healthSettings', optionChoice + '' + optionValue)) {
 						if ((optionValue2 === undefined) || isNaN(optionValue2) || (optionValue2 < 0)) {
 							$.say($.whisperPrefix(sender) + $.lang.get('healthsystem.settings.usage.set.movement', baseCommand + 'settings'));
-							return;	
+							return;
 						} else {
 							$.say($.whisperPrefix(sender) + $.lang.get('healthsystem.settings.set.movement', baseCommand + 'settings', optionChoice, optionValue, optionValue2));
 							movementtimer = $.setIniDbBoolean('healthSettings', 'movementtimer', optionValue);
 							reloadHealth();
-							return;						
+							return;
 						}
 					} else {
 						$.say($.whisperPrefix(sender) + $.lang.get('healthsystem.settings.usage.set.movement', baseCommand + 'settings'));
-						return;	
+						return;
 					}
 				} else if (optionChoice.equalsIgnoreCase('sleep')) {
-					if ($.inidb.exists('healthSettings', optionChoice + '' +optionValue)) {
+					if ($.inidb.exists('healthSettings', optionChoice + '' + optionValue)) {
 						if ((optionValue2 === undefined) || isNaN(optionValue2) || (optionValue2 < 0)) {
 							$.say($.whisperPrefix(sender) + $.lang.get('healthsystem.settings.usage.set.sleep', baseCommand + 'settings'));
-							return;	
+							return;
 						} else {
 							$.say($.whisperPrefix(sender) + $.lang.get('healthsystem.settings.set.sleep', baseCommand + 'settings', optionChoice, optionValue, optionValue2));
 							sleeptimer = $.setIniDbBoolean('healthSettings', 'sleeptimer', optionValue);
 							reloadHealth();
-							return;						
+							return;
 						}
 					} else {
 						$.say($.whisperPrefix(sender) + $.lang.get('healthsystem.settings.usage.set.sleep', baseCommand + 'settings'));
 						return;
 					}
 				} else if (optionChoice.equalsIgnoreCase('wellbeing')) {
-					if ($.inidb.exists('healthSettings', optionChoice + '' +optionValue)) {
+					if ($.inidb.exists('healthSettings', optionChoice + '' + optionValue)) {
 						if ((optionValue2 === undefined) || isNaN(optionValue2) || (optionValue2 < 0)) {
 							$.say($.whisperPrefix(sender) + $.lang.get('healthsystem.settings.usage.set.wellbeing', baseCommand + 'settings'));
-							return;	
+							return;
 						} else {
 							$.say($.whisperPrefix(sender) + $.lang.get('healthsystem.settings.set.wellbeing', baseCommand + 'settings', optionChoice, optionValue, optionValue2));
 							wellbeingtimer = $.setIniDbBoolean('healthSettings', 'wellbeingtimer', optionValue);
 							reloadHealth();
-							return;					
+							return;
 						}
 					} else {
 						$.say($.whisperPrefix(sender) + $.lang.get('healthsystem.settings.usage.set.wellbeing', baseCommand + 'settings'));
-						return;	
+						return;
 					}
 				} else {
 					$.say($.whisperPrefix(sender) + $.lang.get('healthsystem.settings.usage.set', baseCommand + 'settings'));
-					return;	
+					return;
 				}
 			}
 
@@ -576,21 +572,17 @@
 					$.say($.whisperPrefix(sender) + $.lang.get('healthsystem.settings.check.usage', baseCommand + 'settings'));
 					return;
 				}
-				
+
 			}
 		}
-
-		if (command.equalsIgnoreCase('reloadhealth')) {
-	        reloadHealth();
-	    }
-    });
+	});
 
 	//Register command.
-	$.bind('initReady',function(){
-	    if($.bot.isModuleEnabled('./custom/systems/healthSystem.js')){
-	    	pushWellbein();
+	$.bind('initReady', function () {
+		if ($.bot.isModuleEnabled('./custom/systems/healthSystem.js')) {
+			pushWellbein();
 
-			$.registerChatCommand('./custom/systems/healthSystem.js',baseCommand,7);
+			$.registerChatCommand('./custom/systems/healthSystem.js', baseCommand, 7);
 			$.registerChatSubcommand(baseCommand, 'hydration', 7);
 			$.registerChatSubcommand(baseCommand, 'hunger', 7);
 			$.registerChatSubcommand(baseCommand, 'movement', 7);
@@ -598,16 +590,14 @@
 			$.registerChatSubcommand(baseCommand, 'wellbeing', 7);
 			$.registerChatSubcommand(baseCommand, 'toggle', 1);
 
-			$.registerChatCommand('./custom/systems/healthSystem.js',baseCommand + 'settings',2);
+			$.registerChatCommand('./custom/systems/healthSystem.js', baseCommand + 'settings', 2);
 			$.registerChatSubcommand(baseCommand + 'settings', 'check', 2);
 			$.registerChatSubcommand(baseCommand + 'settings', 'set', 1);
-
-			$.registerChatCommand('./custom/systems/healthSystem.js', 'reloadhealth', 30);
-	    }    
+		}
 	});
-	
-	setTimeout(function() {
-		setInterval(function() { reminderBot(); }, 6e4, 'scripts::custom::systems::healthSystem.js');
+
+	setTimeout(function () {
+		setInterval(function () { reminderBot(); }, 6e4, 'scripts::custom::systems::healthSystem.js');
 	}, 5e3);
 
 	$.reloadHealth = reloadHealth;
