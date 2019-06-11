@@ -21,7 +21,7 @@ This is a Reward System modules made by Codes2Much.
 - !healthsettings check [system] - List the current setting for that said system.
 
 ## For Streamer ToDo:
-- Nothing currently required from the streamers from this point.
+- Nothing currently required from the streamers from this point. (Will post panel soon)
 
 ## Notes:
 - Place healthSystem.js into *./scripts/custom/systems* if folders not there then make them
