@@ -1,8 +1,8 @@
 # <img alt="PhantomBot" src="https://phantombot.tv/img/new-logo-dark-v2.png" width="600px"/>
 
-# Codes2Much's Custom Modules for PhantomBot
-These are custom modules made by Codes2Much.
-(Dies sind benutzerdefinierte Module für PhantomBot, erstellt von Codes2Much)
+# TheCynicalTeam's Custom Modules for PhantomBot
+These are custom modules made by TheCynicalTeam.
+(Dies sind benutzerdefinierte Module für PhantomBot, erstellt von TheCynicalTeam)
 
 ## Scripts (Skripte)
 - ### Commands (Befehle)

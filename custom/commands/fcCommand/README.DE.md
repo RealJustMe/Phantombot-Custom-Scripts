@@ -1,7 +1,7 @@
 # <img alt="PhantomBot" src="https://phantombot.tv/img/new-logo-dark-v2.png" width="600px"/>
 
-# Codes2Much's FriendCode Modules for PhantomBot
-This is a FriendCode modules made by Codes2Much.
+# TheCynicalTeam's FriendCode Modules for PhantomBot
+This is a FriendCode modules made by TheCynicalTeam.
 
 ## Download
 - [x] [Download fcCommand](/custom/commands/fcCommand/fcCommand.js?raw=true "fcCommand")

@@ -1,7 +1,7 @@
 # <img alt="PhantomBot" src="https://phantombot.tv/img/new-logo-dark-v2.png" width="600px"/>
 
-# Codes2Much's ETS2 Modules for PhantomBot
-This is a ETS2 modules made by Codes2Much.
+# TheCynicalTeam's ETS2 Modules for PhantomBot
+This is a ETS2 modules made by TheCynicalTeam.
 
 ## Download
 - [x] [Download est2Command](/custom/commands/est2Command/est2Command.js?raw=true "est2Command")

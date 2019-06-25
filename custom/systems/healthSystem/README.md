@@ -1,7 +1,7 @@
 # <img alt="PhantomBot" src="https://phantombot.tv/img/new-logo-dark-v2.png" width="600px"/>
 
-# Codes2Much's Reward System Modules for PhantomBot
-This is a Reward System modules made by Codes2Much.
+# TheCynicalTeam's Reward System Modules for PhantomBot
+This is a Reward System modules made by TheCynicalTeam.
 
 ## Download
 - [x] [Download healthSystem](/custom/systems/healthSystem/healthSystem.js?raw=true "healthSystem")
