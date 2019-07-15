@@ -4,14 +4,14 @@
  * A command that will let you challenge another user to a fight.
  *
  * Current version 2.1.0
- * 
+ *
  * Original author: yxpoh (https://community.phantombot.tv/t/the-challenge-automated-randomized-fighting-chat-game/1529)
- * 
+ *
  * Contributors:
  * UsernamesSuck, TheRealAlixe, ArthurTheLastAncient
  *
  */
-(function() {
+(function () {
 	var // General variables
 		currentChallenge = 1,
 		attackMoves = 0,
@@ -31,7 +31,7 @@
 		maxwager = $.getSetIniDbNumber('challengeSettings', 'maxwager', 0),
 		captions = $.getSetIniDbNumber('challengeSettings', 'captions', 4),
 		recovery = $.getSetIniDbNumber('challengeSettings', 'recovery', 10);
-	
+
     /**
      * @function reloadChallenge
      */
@@ -39,7 +39,7 @@
 		var newCommand = $.getSetIniDbString('challengeSettings', 'baseCommand', 'challenge');
 		newCommand = newCommand.toLowerCase();
 		if (newCommand != baseCommand) {
-			if (!commandExists(newCommand)) {
+			if (!$.commandExists(newCommand)) {
 				var permBase = $.inidb.get('permcom', baseCommand);
 				var permSet = $.inidb.get('permcom', baseCommand + ' set');
 				var permReset = $.inidb.get('permcom', baseCommand + ' reset');
@@ -55,20 +55,20 @@
 				$.consoleDebug($.lang.get('challengesystem.set.basecommand.failed', optionValue));
 			}
 		}
-        attackSuccess = $.getIniDbNumber('challengeSettings', 'attackSuccess');
-        minDmg = $.getIniDbNumber('challengeSettings', 'minDmg');
-        maxDmg = $.getIniDbNumber('challengeSettings', 'maxDmg');
-        defaultHealth = $.getIniDbNumber('challengeSettings', 'defaultHealth');
-        timeoutSec = $.getIniDbNumber('challengeSettings', 'timeoutSec');
+		attackSuccess = $.getIniDbNumber('challengeSettings', 'attackSuccess');
+		minDmg = $.getIniDbNumber('challengeSettings', 'minDmg');
+		maxDmg = $.getIniDbNumber('challengeSettings', 'maxDmg');
+		defaultHealth = $.getIniDbNumber('challengeSettings', 'defaultHealth');
+		timeoutSec = $.getIniDbNumber('challengeSettings', 'timeoutSec');
 		messageInterval = $.getIniDbNumber('challengeSettings', 'messageInterval');
 		challengeInterval = $.getIniDbNumber('challengeSettings', 'challengeInterval');
-        captions = $.getIniDbNumber('challengeSettings', 'captions');
+		captions = $.getIniDbNumber('challengeSettings', 'captions');
 		recovery = $.getIniDbNumber('challengeSettings', 'recovery');
 		wager = $.getIniDbNumber('challengeSettings', 'wager');
 		tempwager = $.getIniDbNumber('challengeSettings', 'tempwager');
 		minwager = $.getIniDbNumber('challengeSettings', 'minwager');
 		maxwager = $.getIniDbNumber('challengeSettings', 'maxwager');
-    }
+	}
 
     /**
      * @function initialiseChallengeSystem
@@ -77,7 +77,7 @@
 		clearCurrentChallenge();
 		loadAttacks();
 		loadDodges();
-    }
+	}
 
     /**
      * @function clearCurrentChallenge
@@ -97,53 +97,53 @@
 
     /**
      * @function loadAttacks
-     */	
+     */
 	function loadAttacks() {
-        var i;
+		var i;
 		attackMoves = 0;
 		// Use the data from lang files to calculate the amount of attack options
-        for (i = 1; $.lang.exists('challengesystem.attack.' + i); i++) {
-            attackMoves++;
-        }
-        $.consoleDebug($.lang.get('challengesystem.console.attacksloaded', attackMoves));
-    }
+		for (i = 1; $.lang.exists('challengesystem.attack.' + i); i++) {
+			attackMoves++;
+		}
+		$.consoleDebug($.lang.get('challengesystem.console.attacksloaded', attackMoves));
+	}
 
     /**
      * @function loadDodges
      */
 	function loadDodges() {
-        var i;
+		var i;
 		dodgeMoves = 0;
 		// Use the data from lang files to calculate the amount of dodoge options
-        for (i = 1; $.lang.exists('challengesystem.dodge.' + i); i++) {
-            dodgeMoves++;
-        }
-        $.consoleDebug($.lang.get('challengesystem.console.dodgesloaded', dodgeMoves));
-    }
+		for (i = 1; $.lang.exists('challengesystem.dodge.' + i); i++) {
+			dodgeMoves++;
+		}
+		$.consoleDebug($.lang.get('challengesystem.console.dodgesloaded', dodgeMoves));
+	}
 
     /**
      * @function clearExpired
      */
-	 function clearExpired() {
+	function clearExpired() {
 		// This will clear the settings if a fight is not in progress and the reply timeout expires
 		$.say($.lang.get('challengesystem.challenge.noreply', baseCommand, currentChallenge.challenger, currentChallenge.challenged));
 		if ((tempwager > 0) && $.bot.isModuleEnabled('./systems/pointSystem.js')) {
 			$.inidb.incr('points', currentChallenge.challenger.toLowerCase(), tempwager);
 		}
 		clearCurrentChallenge();
-    }
+	}
 
     /**
      * @function clearRefused
      */
-	 function clearRefused() {
+	function clearRefused() {
 		// This will clear the settings if a fight is not in progress and the challenge user declines
 		$.say($.lang.get('challengesystem.challenge.refused', baseCommand, currentChallenge.challenger, currentChallenge.challenged));
 		if ((tempwager > 0) && $.bot.isModuleEnabled('./systems/pointSystem.js')) {
 			$.inidb.incr('points', currentChallenge.challenger.toLowerCase(), tempwager);
 		}
 		clearCurrentChallenge();
-    }
+	}
 
     /**
      * @function challengeSequence
@@ -182,7 +182,7 @@
 			} while (((move > dodgeMoves && move < 1) || move == currentChallenge.lastMove) && dodgeMoves > 1);
 			chatOutput = $.lang.get('challengesystem.dodge.' + move, attacker, defender);
 		}
-		
+
 		// Remember the last used move so the next move will be different
 		currentChallenge.lastMove = move;
 
@@ -194,7 +194,7 @@
 			// Display max captions message to chat only once
 			if (currentChallenge.showCaptions) {
 				currentChallenge.showCaptions = false;
-				$.say($.lang.get('challengesystem.challenge.maxcaptionsreached'));				
+				$.say($.lang.get('challengesystem.challenge.maxcaptionsreached'));
 			}
 		}
 
@@ -211,9 +211,9 @@
 		currentChallenge.showCaptions = true;
 		currentChallenge.currentTurn = 1;
 		currentChallenge.lastMove = 0;
-        var t = setTimeout(function() {
-            runChallenge();
-        }, messageInterval * 1e3);
+		var t = setTimeout(function () {
+			runChallenge();
+		}, messageInterval * 1e3);
 	}
 
     /**
@@ -254,7 +254,7 @@
 		$.inidb.set('challengeTimes', currentChallenge.challenged, Date.now());
 
 		// Prepare the cleanup and free the Arena
-		var t = setTimeout(function() {
+		var t = setTimeout(function () {
 			cleanupChallenge();
 		}, challengeInterval * 1e3);
 
@@ -291,21 +291,21 @@
 		// Check if we have a winner
 		if ((currentChallenge.challengerHealth <= 0) || (currentChallenge.challengedHealth <= 0)) {
 			// Someone's health has been reduced to 0, so we have a winner!
-			var t = setTimeout(function() {
+			var t = setTimeout(function () {
 				endChallenge();
 			}, messageInterval * 1e3);
-			
+
 		} else {
 			// No winner yet, so let's schedule the next round
 			currentChallenge.currentTurn++;
 			if (currentChallenge.showCaptions) {
 				// Set delay to set messageInterval
-				var t = setTimeout(function() {
+				var t = setTimeout(function () {
 					runChallenge();
 				}, messageInterval * 1e3);
 			} else {
 				// We're not showing captions (anymore), so the delay can be small
-				var t = setTimeout(function() {
+				var t = setTimeout(function () {
 					runChallenge();
 				}, 100);
 			}
@@ -317,11 +317,11 @@
 	 */
 	$.bind('command', function (event) {
 		var command = event.getCommand(),
-            sender = event.getSender(),
+			sender = event.getSender(),
 			args = event.getArgs(),
-            action = args[0];
-			optionChoice = args[1];
-			optionValue = args[2];
+			action = args[0];
+		optionChoice = args[1];
+		optionValue = args[2];
 
         /**
          * @commandpath "baseCommand" - Challenge command for starting, checking or setting options
@@ -330,8 +330,7 @@
          */
 		if (command.equalsIgnoreCase(baseCommand)) {
 
-			if (action === undefined)
-			{
+			if (action === undefined) {
 				$.say($.whisperPrefix(sender) + $.lang.get('challengesystem.challenge.usage', baseCommand));
 				return;
 			}
@@ -344,11 +343,11 @@
 					$.say($.whisperPrefix(sender) + $.lang.get('challengesystem.set.usage', baseCommand));
 					return;
 				}
-				
+
 				/**
 				 * @commandpath "baseCommand" set minDamage [integer] - Used to set the minimum amount of damage done with a successful attack
 				 */
-				if (optionChoice.trim().equalsIgnoreCase('minDamage')){
+				if (optionChoice.trim().equalsIgnoreCase('minDamage')) {
 					if ((optionValue === undefined) || isNaN(optionValue) || (optionValue < 0)) {
 						$.say($.whisperPrefix(sender) + $.lang.get('challengesystem.set.mindamage.usage', baseCommand, minDmg));
 						return;
@@ -363,7 +362,7 @@
 				/**
 				 * @commandpath "baseCommand" set maxDamage [integer] - Used to set the maximum amount of damage done with a successful attack
 				 */
-				if (optionChoice.trim().equalsIgnoreCase('maxDamage')){
+				if (optionChoice.trim().equalsIgnoreCase('maxDamage')) {
 					if ((optionValue === undefined) || isNaN(optionValue) || (optionValue < 0)) {
 						$.say($.whisperPrefix(sender) + $.lang.get('challengesystem.set.maxdamage.usage', baseCommand, maxDmg));
 						return;
@@ -378,7 +377,7 @@
 				/**
 				 * @commandpath "baseCommand" set health [integer] - Used to set the starting amount of health each player has
 				 */
-				if (optionChoice.trim().equalsIgnoreCase('health')){
+				if (optionChoice.trim().equalsIgnoreCase('health')) {
 					if ((optionValue === undefined) || isNaN(optionValue) || (optionValue < 0)) {
 						$.say($.whisperPrefix(sender) + $.lang.get('challengesystem.set.health.usage', baseCommand, defaultHealth));
 						return;
@@ -393,7 +392,7 @@
 				/**
 				 * @commandpath "baseCommand" set attackrate [integer] - Used to set the successrate of attacks
 				 */
-				if (optionChoice.trim().equalsIgnoreCase('attackRate')){
+				if (optionChoice.trim().equalsIgnoreCase('attackRate')) {
 					if ((optionValue === undefined) || isNaN(optionValue) || (optionValue < 0)) {
 						$.say($.whisperPrefix(sender) + $.lang.get('challengesystem.set.attackrate.usage', baseCommand, attackSuccess));
 						return;
@@ -408,7 +407,7 @@
 				/**
 				 * @commandpath "baseCommand" set wager [integer] - Used to set the amount of currency wagered on the challenge. Set to 0 to disable.
 				 */
-				if (optionChoice.trim().equalsIgnoreCase('wager')){
+				if (optionChoice.trim().equalsIgnoreCase('wager')) {
 					if ($.bot.isModuleEnabled('./systems/pointSystem.js')) {
 						if ((optionValue === undefined) || isNaN(optionValue) || (optionValue < 0)) {
 							$.say($.whisperPrefix(sender) + $.lang.get('challengesystem.set.wager.usage', baseCommand, $.getPointsString(wager)));
@@ -427,7 +426,7 @@
 				/**
 				 * @commandpath "baseCommand" set minwager [integer] - Used to set the minimum amount of currency wagered on the challenge. Set to 0 to disable.
 				 */
-				if (optionChoice.trim().equalsIgnoreCase('minwager')){
+				if (optionChoice.trim().equalsIgnoreCase('minwager')) {
 					if ($.bot.isModuleEnabled('./systems/pointSystem.js')) {
 						if ((optionValue === undefined) || isNaN(optionValue) || (optionValue < 0)) {
 							$.say($.whisperPrefix(sender) + $.lang.get('challengesystem.set.minwager.usage', baseCommand, $.getPointsString(minwager)));
@@ -446,7 +445,7 @@
 				/**
 				 * @commandpath "baseCommand" set minwager [integer] - Used to set the minimum amount of currency wagered on the challenge. Set to 0 to disable.
 				 */
-				if (optionChoice.trim().equalsIgnoreCase('maxwager')){
+				if (optionChoice.trim().equalsIgnoreCase('maxwager')) {
 					if ($.bot.isModuleEnabled('./systems/pointSystem.js')) {
 						if ((optionValue === undefined) || isNaN(optionValue) || (optionValue < 0)) {
 							$.say($.whisperPrefix(sender) + $.lang.get('challengesystem.set.maxwager.usage', baseCommand, $.getPointsString(maxwager)));
@@ -465,7 +464,7 @@
 				/**
 				 * @commandpath "baseCommand" set timeout [integer] - Used to set the time in seconds to accept a challenge.
 				 */
-				if (optionChoice.trim().equalsIgnoreCase('timeout')){
+				if (optionChoice.trim().equalsIgnoreCase('timeout')) {
 					if ((optionValue === undefined) || isNaN(optionValue) || (optionValue < 0)) {
 						$.say($.whisperPrefix(sender) + $.lang.get('challengesystem.set.timeout.usage', baseCommand, timeoutSec));
 						return;
@@ -480,7 +479,7 @@
 				/**
 				 * @commandpath "baseCommand" set messageInterval [integer] - Used to set the chat message interval in seconds.
 				 */
-				if (optionChoice.trim().equalsIgnoreCase('messageinterval')){
+				if (optionChoice.trim().equalsIgnoreCase('messageinterval')) {
 					if ((optionValue === undefined) || isNaN(optionValue) || (optionValue < 0)) {
 						$.say($.whisperPrefix(sender) + $.lang.get('challengesystem.set.messageinterval.usage', baseCommand, messageInterval));
 						return;
@@ -495,7 +494,7 @@
 				/**
 				 * @commandpath "baseCommand" set challengeInterval [integer] - Used to set the challenge interval in seconds.
 				 */
-				if (optionChoice.trim().equalsIgnoreCase('challengeinterval')){
+				if (optionChoice.trim().equalsIgnoreCase('challengeinterval')) {
 					if ((optionValue === undefined) || isNaN(optionValue) || (optionValue < 0)) {
 						$.say($.whisperPrefix(sender) + $.lang.get('challengesystem.set.challengeinterval.usage', baseCommand, challengeInterval));
 						return;
@@ -510,7 +509,7 @@
 				/**
 				 * @commandpath "baseCommand" set recovery [integer] - Used to set the user recovery time in minutes.
 				 */
-				if (optionChoice.trim().equalsIgnoreCase('recovery')){
+				if (optionChoice.trim().equalsIgnoreCase('recovery')) {
 					if ((optionValue === undefined) || isNaN(optionValue) || (optionValue < 0)) {
 						$.say($.whisperPrefix(sender) + $.lang.get('challengesystem.set.recovery.usage', baseCommand, recovery));
 						return;
@@ -525,7 +524,7 @@
 				/**
 				 * @commandpath "baseCommand" set captions [integer] - Used to set the maximum number of chat messages shown per challenge.
 				 */
-				if (optionChoice.trim().equalsIgnoreCase('captions')){
+				if (optionChoice.trim().equalsIgnoreCase('captions')) {
 					if ((optionValue === undefined) || isNaN(optionValue) || (optionValue < 0)) {
 						if (captions > 0) {
 							$.say($.whisperPrefix(sender) + $.lang.get('challengesystem.set.captions.usage', baseCommand, captions + ' messages'));
@@ -543,20 +542,20 @@
 						}
 						return;
 					}
-				} 
+				}
 
 				/**
 				 * @commandpath "baseCommand" set baseCommand [string] - Used to set the base command for the challenge system.
 				 */
-				if (optionChoice.trim().equalsIgnoreCase('basecommand')){
+				if (optionChoice.trim().equalsIgnoreCase('basecommand')) {
 					if (optionValue === undefined) {
 						$.say($.whisperPrefix(sender) + $.lang.get('challengesystem.set.basecommand.usage', baseCommand));
 						return;
 					} else {
-						optionValue = $.replace(optionValue,'!','');
+						optionValue = $.replace(optionValue, '!', '');
 						optionValue = optionValue.toLowerCase();
 						if (optionValue != baseCommand) {
-							if (!commandExists(optionValue)) {
+							if (!$.commandExists(optionValue)) {
 								var permBase = $.inidb.get('permcom', baseCommand);
 								var permSet = $.inidb.get('permcom', baseCommand + ' set');
 								var permReset = $.inidb.get('permcom', baseCommand + ' reset');
@@ -581,7 +580,7 @@
 				 */
 				$.say($.whisperPrefix(sender) + $.lang.get('challengesystem.set.usage', baseCommand));
 				return;
-			} 
+			}
 
             /**
              * @commandpath "baseCommand" reset - Base command for resetting and reloading the challenge module.
@@ -598,10 +597,10 @@
 			}
 
 			//Check if there is a current challenge proposal on-going
-			if (!currentChallenge.inProgress){
+			if (!currentChallenge.inProgress) {
 				// If nothing, then check recovery and wager/balance
-				currentChallenge.challenger = $.username.resolve(String($.replace(sender,'@','')));
-				currentChallenge.challenged = $.username.resolve(String($.replace(action.trim(),'@','')));
+				currentChallenge.challenger = $.username.resolve(String($.replace(sender, '@', '')));
+				currentChallenge.challenged = $.username.resolve(String($.replace(action.trim(), '@', '')));
 				// See if there's a wager sent with the challenge
 				if ((optionChoice === undefined) || isNaN(optionChoice) || (optionChoice < 0)) {
 					tempwager = wager;
@@ -661,14 +660,14 @@
 						$.inidb.decr('points', currentChallenge.challenger.toLowerCase(), tempwager);
 					}
 					acceptTimeout = setTimeout(clearExpired, timeoutSec * 1e3); // Set a timeout to expire the challenge if challenged doesn't reply.
-					if(currentChallenge.challenged.toLowerCase() == $.botName.toLowerCase()) {
+					if (currentChallenge.challenged.toLowerCase() == $.botName.toLowerCase()) {
 						$.say($.lang.get('challengesystem.challenge.sentself', baseCommand, currentChallenge.challenger, currentChallenge.challenged));
 						clearTimeout(acceptTimeout); // Clear Timeout as there is not need for it to expire.
 						if ((tempwager > 0) && $.bot.isModuleEnabled('./systems/pointSystem.js')) {
 							$.inidb.decr('points', currentChallenge.challenged.toLowerCase(), tempwager);
 						}
 
-						setTimeout(function() {
+						setTimeout(function () {
 							initialiseChallenge(); // Initialize the Challenge. This will also set up the setTimeout events to run the challenge.
 						}, 5e3);
 						return;
@@ -679,7 +678,7 @@
 				return;
 			} else {
 				// Check if Challenged is responding.
-				if (($.replace(action.trim(),'@','').equalsIgnoreCase(currentChallenge.challenger) || $.replace(action.trim(),'@','').equalsIgnoreCase('accept')) &&  $.replace(sender,'@','').equalsIgnoreCase(currentChallenge.challenged)) {
+				if (($.replace(action.trim(), '@', '').equalsIgnoreCase(currentChallenge.challenger) || $.replace(action.trim(), '@', '').equalsIgnoreCase('accept')) && $.replace(sender, '@', '').equalsIgnoreCase(currentChallenge.challenged)) {
 					clearTimeout(acceptTimeout); // Clear Timeout as there is not need for it to expire.
 					if ((tempwager > 0) && $.bot.isModuleEnabled('./systems/pointSystem.js')) {
 						$.inidb.decr('points', currentChallenge.challenged.toLowerCase(), tempwager);
@@ -687,24 +686,24 @@
 					$.say($.lang.get('challengesystem.challenge.start', baseCommand, currentChallenge.challenger, currentChallenge.challenged));
 					initialiseChallenge(); // Initialize the Challenge. This will also set up the setTimeout events to run the challenge.
 					return;
-				} else if ($.replace(action.trim(),'@','').equalsIgnoreCase('refuse') || $.replace(action.trim(),'@','').equalsIgnoreCase('decline')) {
+				} else if ($.replace(action.trim(), '@', '').equalsIgnoreCase('refuse') || $.replace(action.trim(), '@', '').equalsIgnoreCase('decline')) {
 					// Challenged user declines
 					clearTimeout(acceptTimeout); // Clear Timeout as there is not need for it to expire.
 					clearRefused();
-				} else { 
+				} else {
 					// Challenge in Progress if not Challenge reply
 					$.say($.lang.get('challengesystem.challenge.inprogress', baseCommand));
 					return;
 				}
 			}
 		}
-   });
+	});
 
     /**
      * @event initReady
      */
-    $.bind('initReady', function() {
-        if ($.bot.isModuleEnabled('./custom/games/challengeSystem.js')) {
+	$.bind('initReady', function () {
+		if ($.bot.isModuleEnabled('./custom/games/challengeSystem.js')) {
 			// Old version variable conversion
 			if (isNaN(captions)) {
 				if (captions) {
@@ -729,17 +728,17 @@
 			}
 
 			// Register commands
-            $.registerChatCommand('./custom/games/challengeSystem.js', baseCommand, 7);
-            $.registerChatSubcommand(baseCommand, 'set', 1);
-            $.registerChatSubcommand(baseCommand, 'reset', 1);
-        }
+			$.registerChatCommand('./custom/games/challengeSystem.js', baseCommand, 7);
+			$.registerChatSubcommand(baseCommand, 'set', 1);
+			$.registerChatSubcommand(baseCommand, 'reset', 1);
+		}
 		/**
 		 * Warn the user if the points system is disabled and this is enabled.
 		 */
 		if ($.bot.isModuleEnabled('./custom/games/challengeSystem.js') && !$.bot.isModuleEnabled('./systems/pointSystem.js')) {
 			$.log.warn("./systems/pointSystem.js is not enabled. Wager will be disabled.");
 		}
-    });
+	});
 
 	$.reloadChallenge = reloadChallenge;
 })();
