@@ -8,7 +8,7 @@ This is a Reward System modules made by TheCynicalTeam.
 - [x] [Download system-spotifySystem](/lang/english/custom/systems/system-spotifySystem.js?raw=true "system-spotifySystem")
 
 ## Current Script Version:
-- 2.0.0
+- 1.0.2
 
 ## Viewer Commands:
 - !spotify - Post the latest spotify song into chat.
