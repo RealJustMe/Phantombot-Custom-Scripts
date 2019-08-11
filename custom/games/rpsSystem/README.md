@@ -1,7 +1,7 @@
 # <img alt="PhantomBot" src="https://phantombot.tv/img/new-logo-dark-v2.png" width="600px"/>
 
-# TheCynicalTeam's Number System Modules for PhantomBot
-This is a Number System modules made by TheCynicalTeam.
+# TheCynicalTeam's RPS System Modules for PhantomBot
+This is a RPS System modules made by TheCynicalTeam.
 
 ## Download
 - [x] [Download rpsSystem](/custom/games/rpsSystem/rpsSystem.js?raw=true "rpsSystem")
