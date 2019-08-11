@@ -21,6 +21,7 @@ These are custom modules made by TheCynicalTeam.
     - Get [lottoSystem (EN)](custom/games/lottoSystem "lottoSystem") - Hol dir [lottoSystem (DE)](custom/games/lottoSystem/README.DE.md "lottoSystem")
     - Get [numberSystem (EN)](custom/games/numberSystem "numberSystem") - Hol dir [numberSystem (DE)](custom/games/numberSystem/README.DE.md "numberSystem")
     - Get [stealSystem (EN)](custom/games/stealSystem "stealSystem") - Hol dir [stealSystem (DE)](custom/games/stealSystem/README.DE.md "stealSystem")
+    - Get [rpsSystem (EN)](custom/games/rpsSystem "rpsSystem") - Hol dir [rpsSystem (DE)](custom/games/rpsSystem/README.DE.md "rpsSystem")
     - Get [tamagotchiSystem (EN)](custom/games/tamagotchiSystem "tamagotchiSystem") - Hol dir [tamagotchiSystem (DE)](custom/games/tamagotchiSystem/README.DE.md "tamagotchiSystem")
 
 - ### Systems (Systeme)
