@@ -9,6 +9,7 @@ These are custom modules made by TheCynicalTeam.
     - Get [est2Command (EN)](custom/commands/est2Command "est2Command") - Hol dir [est2Command (DE)](custom/commands/est2Command/README.DE.md "est2Command")
     - Get [fcCommand (EN)](custom/commands/fcCommand "fcCommand") - Hol dir [fcCommand (DE)](custom/commands/fcCommand/README.DE.md "fcCommand")
     - Get [flirtCommand (EN)](custom/commands/flirtCommand "flirtCommand") - Hol dir [flirtCommand (DE)](custom/commands/flirtCommand/README.DE.md "flirtCommand")
+    - Get [fortuneCommand (EN)](custom/commands/fortuneCommand "fortuneCommand") - Hol dir [fortuneCommand (DE)](custom/commands/fortuneCommand/README.DE.md "fortuneCommand")
     - Get [gtCommand (EN)](custom/commands/gtCommand "gtCommand") - Hol dir [gtCommand (DE)](custom/commands/gtCommand/README.DE.md "gtCommand")
 
 - ### Games (Spiele)
