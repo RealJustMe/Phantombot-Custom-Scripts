@@ -6,7 +6,7 @@ This is a Reward System modules made by TheCynicalTeam.
 ## Download
 - [x] [Download healthSystem](/custom/systems/healthSystem/healthSystem.js?raw=true "healthSystem")
 - [x] [Download system-healthSystem](/lang/english/custom/systems/system-healthSystem.js?raw=true "system-healthSystem")
-- [x] [Download system-healthSystem](/lang/german/custom/systems/system-healthSystem.js?raw=true "system-healthSystem") DE
+- [x] [Download system-healthSystem](/lang/german/custom/systems/system-healthSystem.js?raw=true "system-healthSystem") (German translation)
 
 ## Current Script Version:
 - 2.0.0

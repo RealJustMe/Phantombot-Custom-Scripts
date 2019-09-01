@@ -6,7 +6,7 @@ This is a Store System modules made by TheCynicalTeam.
 ## Download
 - [x] [Download storeSystem](/custom/systems/storeSystem/storeSystem.js?raw=true "storeSystem")
 - [x] [Download system-storeSystem](/lang/english/custom/systems/system-storeSystem.js?raw=true "system-storeSystem")
-- [x] [Download system-storeSystem](/lang/german/custom/systems/system-storeSystem.js?raw=true "system-storeSystem") DE
+- [x] [Download system-storeSystem](/lang/german/custom/systems/system-storeSystem.js?raw=true "system-storeSystem") (German translation)
 
 ## Current Script Version:
 - 1.0.0

@@ -6,7 +6,7 @@ This is a FriendCode modules made by TheCynicalTeam.
 ## Download
 - [x] [Download fcCommand](/custom/commands/fcCommand/fcCommand.js?raw=true "fcCommand")
 - [x] [Download commands-fcCommand](/lang/english/custom/commands/commands-fcCommand.js?raw=true "commands-fcCommand")
-- [x] [Download commands-fcCommand](/lang/german/custom/commands/commands-fcCommand.js?raw=true "commands-fcCommand") DE
+- [x] [Download commands-fcCommand](/lang/german/custom/commands/commands-fcCommand.js?raw=true "commands-fcCommand") (German translation)
 
 ## Current Script Version:
 - 1.0.0
