@@ -3,7 +3,8 @@ from argparse import ArgumentParser
 
 argparser = ArgumentParser(
     description='Compare lang/english with a translation')
-argparser.add_argument('language', metavar='LANGUAGE')
+argparser.add_argument(
+    'language', default='german', nargs='?', metavar='LANGUAGE')
 args = argparser.parse_args()
 language = args.language
 language_folder = 'lang/%s' % language
