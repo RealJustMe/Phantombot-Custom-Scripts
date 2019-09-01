@@ -6,6 +6,7 @@ This is a Reward System modules made by TheCynicalTeam.
 ## Download
 - [x] [Download rewardSystem](/custom/systems/rewardSystem/rewardSystem.js?raw=true "rewardSystem")
 - [x] [Download system-rewardSystem](/lang/english/custom/systems/system-rewardSystem.js?raw=true "system-rewardSystem")
+- [x] [Download system-rewardSystem](/lang/german/custom/systems/system-rewardSystem.js?raw=true "system-rewardSystem") DE
 
 ## Current Script Version:
 - 1.0.0

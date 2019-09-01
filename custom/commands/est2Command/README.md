@@ -6,6 +6,7 @@ This is a ETS2 modules made by TheCynicalTeam.
 ## Download
 - [x] [Download est2Command](/custom/commands/est2Command/est2Command.js?raw=true "est2Command")
 - [x] [Download commands-est2Command](/lang/english/custom/commands/commands-ets2Command.js?raw=true "commands-est2Command")
+- [x] [Download commands-est2Command](/lang/german/custom/commands/commands-ets2Command.js?raw=true "commands-est2Command") DE
 - [x] [Download ets2-telemetry-server](/external/ets2-telemetry-server.zip?raw=true "ets2-telemetry-server")
 
 ## Current Script Version:

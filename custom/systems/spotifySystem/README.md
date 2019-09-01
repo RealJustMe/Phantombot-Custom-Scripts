@@ -6,6 +6,7 @@ This is a Reward System modules made by TheCynicalTeam.
 ## Download
 - [x] [Download spotifySystem](/custom/systems/spotifySystem/spotifySystem.js?raw=true "spotifySystem")
 - [x] [Download system-spotifySystem](/lang/english/custom/systems/system-spotifySystem.js?raw=true "system-spotifySystem")
+- [x] [Download system-spotifySystem](/lang/german/custom/systems/system-spotifySystem.js?raw=true "system-spotifySystem") DE
 
 ## Current Script Version:
 - 1.0.2
