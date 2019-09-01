@@ -25,7 +25,7 @@ $.lang.register('dailysystem.daily.cooldown', 'Du hast deine tägliche BElohnung
  */
 //main command for setting the varables.
 $.lang.register('dailysystem.set.usage','Verwendung: !$1 set [ <Benutzergruppen-ID> | baseCommand ]');
-$.lang.register('dailysystem.set.usage.pointsystem','Tägliche BElohnung kann nicht aktiviert werden, weil das Modul "$1" nicht aktiviert ist.');
+$.lang.register('dailysystem.set.usage.pointsystem','Tägliche Belohnung kann nicht aktiviert werden, weil das Modul "$1" nicht aktiviert ist.');
 //set daily .
 $.lang.register('dailysystem.set.usage','Verwendung: !$1 set <Benutzergruppen-ID> <Minimum-Summe> <Maximum-Summe>. Aktuelle Einstellung: Min: $2, Max: $3.');
 $.lang.register('dailysystem.set.success','$1 Die Auszahlung wurde neu eingestellt: Min: $2, Max: $3.');
