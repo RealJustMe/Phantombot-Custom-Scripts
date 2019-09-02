@@ -40,7 +40,7 @@
      * @event initReady
      */
     $.bind('initReady', function() {
-        if($.bot.isModuleEnabled('./custom/games/heistSystem.js')){
+        if($.bot.isModuleEnabled('./custom/games/hackSystem.js')){
             $.registerChatCommand('./custom/games/hackSystem.js', 'hack', 7);
         }
     });
