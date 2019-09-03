@@ -19,13 +19,12 @@ $.lang.register('bank.sender.check', '$1, You currently have a total of $2.');
 
 //Add command for the bank system
 $.lang.register('bank.add.succeed', '$1, You have successfully added $2 to $4\'s bank account. They now have a total of $3');
-$.lang.register('bank.add.fail', '$1, Sorry but $2 in not in out system.');
+$.lang.register('bank.add.fail', '$1, Sorry but $2 in not in our system.');
 $.lang.register('bank.add.missing', '$1, Usage: !bank add <amount> <username>.');
-$.lang.register('bank.add.fail', '$1, Sorry but $2 in not in out system.');
 
 //Check command for the bank system
 $.lang.register('bank.check.succeed', '$1, $2 currently has a total of $3.');
-$.lang.register('bank.check.fail', '$1, Sorry but $2 in not in out system.');
+$.lang.register('bank.check.fail', '$1, Sorry but $2 in not in our system.');
 $.lang.register('bank.check.missing', '$1, Usage: !bank check <username>');
 
 //Invest command for the bank system
