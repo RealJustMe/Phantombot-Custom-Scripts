@@ -49,7 +49,7 @@ for file in translated_files:
         untranslated_files.remove(file)
 if untranslated_files:
     print('\n= Untranslated files =')
-    for file in untranslated_files:
+    for file in sorted(untranslated_files):
         print(file)
 
 # Check for missing lines in translation
@@ -60,7 +60,7 @@ for file in untranslated_lines:
     for line in translated_files[file]:
         if line in translated_files[file] and line in untranslated_lines[file]:
             untranslated_lines[file].remove(line)
-for file in untranslated_lines:
+for file in sorted(untranslated_lines):
     if untranslated_lines[file]:
         print('\n= Untranslated lines in %s =' % file)
         for line in untranslated_lines[file]:
@@ -73,7 +73,7 @@ for file in english_files:
         leftover_files.remove(file)
 if leftover_files:
     print('\n= Leftover files =')
-    for file in untranslated_files:
+    for file in sorted(leftover_files):
         print(file)
 
 # Check for leftover lines in translation
@@ -84,7 +84,7 @@ for file in leftover_lines:
     for line in english_files[file]:
         if line in english_files[file] and line in leftover_lines[file]:
             leftover_lines[file].remove(line)
-for file in leftover_lines:
+for file in sorted(leftover_lines):
     if leftover_lines[file]:
         print('\n= Leftover lines in %s =' % file)
         for line in leftover_lines[file]:
