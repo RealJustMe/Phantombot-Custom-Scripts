@@ -1,7 +1,7 @@
 # <img alt="PhantomBot" src="https://phantombot.tv/img/new-logo-dark-v2.png" width="600px"/>
 
-# TheCynicalTeam's Reward System Modules for PhantomBot
-This is a Reward System modules made by TheCynicalTeam.
+# TheCynicalTeam's Spotify System Module for PhantomBot
+This is a Spotify System module made by TheCynicalTeam.
 
 ## Download
 - [x] [Download spotifySystem](/custom/systems/spotifySystem/spotifySystem.js?raw=true "spotifySystem")
@@ -20,8 +20,8 @@ This is a Reward System modules made by TheCynicalTeam.
 - !spotify refreshkey [key] - Set refresh key.
 - !spotify apikey [key] - Set api key.
 
-## For Streamer ToDo:
-- Nothing
+## Setup:
+- Somehow acquire API and refresh tokens. Then set them via `!spotify apikey` and `!spotify refreshkey`.
 
 ## Notes:
 - Place spotifySystem.js into *./scripts/custom/systems* if folders not there then make them

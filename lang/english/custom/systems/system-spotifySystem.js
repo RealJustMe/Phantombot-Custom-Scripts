@@ -10,7 +10,7 @@
  * Contributors:
  * UsernamesSuck
  */
-$.lang.register('spotify.error.404', '>> [spotifySystem] The username $1 or apikey $2 for lastFm is incorrect and must be changed.');
+$.lang.register('spotify.error.404', '>> [spotifySystem] The username $1 or apikey $2 for Spotify is incorrect and must be changed.');
 
 $.lang.register('spotify.latest.song', '$1 [♫] Now Playing: $2');
 $.lang.register('spotify.latest.song.auto', '[♫] Now Playing: $1');

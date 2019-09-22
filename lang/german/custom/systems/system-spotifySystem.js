@@ -10,7 +10,7 @@
  * Contributors:
  * UsernamesSuck
  */
-$.lang.register('spotify.error.404', '>> [spotifySystem] Der Benutzername $1 oder API-Key $2 für SPotify ist inkorrekt und muss geändert werden.');
+$.lang.register('spotify.error.404', '>> [spotifySystem] Der Benutzername $1 oder API-Key $2 für Spotify ist inkorrekt und muss geändert werden.');
 
 $.lang.register('spotify.latest.song', '$1 [♫] Aktuelles Lied: $2');
 $.lang.register('spotify.latest.song.auto', '[♫] Aktuelles Lied: $1');
