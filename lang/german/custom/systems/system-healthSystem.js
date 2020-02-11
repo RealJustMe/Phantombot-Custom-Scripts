@@ -76,7 +76,7 @@ $.lang.register('healthsystem.wellbeing.reminder.5', '"Morgen ist noch nicht gek
 $.lang.register('healthsystem.wellbeing.reminder.6', 'Positiv zu sein ist besser als negativ zu denken!');
 
 // command messages
-$.lang.register('healthsystem.wellbeing.command.loaded', '$1 Wohlfühl-Commands gefunden.);
+$.lang.register('healthsystem.wellbeing.command.loaded', '$1 Wohlfühl-Commands gefunden.');
 $.lang.register('healthsystem.wellbeing.command.1', 'Im Leben geht es nicht darum, darauf zu warten, dass das Unwetter vorübergeht, sondern darum, zu lernen, im Regen zu tanzen.');
 $.lang.register('healthsystem.wellbeing.command.2', 'Wir sollten dankbar sein für all deine schwierigen Zeiten, denn ohne sie wären wir niemals über unsere Stärken gestolpert.');
 $.lang.register('healthsystem.wellbeing.command.3', 'Glaube dass DU es kannst & du hast den halben Weg geschafft!');
